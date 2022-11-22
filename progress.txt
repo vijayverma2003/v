@@ -4,6 +4,7 @@ Started the project by creating a directory called V.
 Installed "django" using `pipenv install django`
 After that initialize the django project using `django-admin startproject v .`
 Created first app "invoicing" using `python manage.py startapp invoicing`
+Installed "django-debug-toolbar" by following instructions on `https://django-debug-toolbar.readthedocs.io/en/latest/installation.html`
 
 
 
