@@ -21,7 +21,7 @@ class Customer(models.Model):
 
 
 class CustomerAddress(models.Model):
-    street = models.CharField(max_length=255)
+    street = models.CharField(max_length=255, null=True)
     city = models.CharField(max_length=55)
     state = models.CharField(max_length=55)
     country = models.CharField(max_length=55)
@@ -46,7 +46,7 @@ class InvoiceProduct(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     discount = models.FloatField()
     packing_charges = models.DecimalField(max_digits=3, decimal_places=2)
-    quantity = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.PositiveBigIntegerField()
 
 
 class Transport(models.Model):
