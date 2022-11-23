@@ -1,9 +1,11 @@
 from django.db import models
+from django.core.validators import MinValueValidator
 
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price = models.DecimalField(
+        max_digits=10, decimal_places=2, validators=[MinValueValidator(1)])
     tax = models.DecimalField(max_digits=4, decimal_places=2)
     unit = models.CharField(max_length=3)
 
@@ -15,7 +17,7 @@ class Product(models.Model):
 
 
 class Stock(models.Model):
-    value = models.IntegerField()
+    value = models.PositiveIntegerField()
     added_on = models.DateField(auto_now=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
@@ -25,14 +27,24 @@ class Customer(models.Model):
     phone = models.CharField(max_length=55)
     email = models.EmailField(max_length=55)
 
+    def __str__(self) -> str:
+        return self.name
 
-class CustomerAddress(models.Model):
-    street = models.CharField(max_length=255, null=True)
+
+class Address(models.Model):
+    street = models.CharField(max_length=255, null=True, blank=True)
     city = models.CharField(max_length=55)
     state = models.CharField(max_length=55)
     country = models.CharField(max_length=55)
     customer = models.OneToOneField(
         Customer, on_delete=models.CASCADE, primary_key=True)
+
+    def __str__(self) -> str:
+        address = ''
+        if self.street:
+            address += f'{self.street}, '
+        address += f'{self.city}, {self.state}, {self.country}'
+        return address
 
 
 class Invoice(models.Model):
@@ -41,7 +53,7 @@ class Invoice(models.Model):
     due_date = models.DateField()
     total = models.DecimalField(max_digits=10, decimal_places=2)
     tax = models.DecimalField(max_digits=10, decimal_places=2)
-    terms = models.TextField(max_length=2000)
+    terms = models.TextField(max_length=2000, default='')
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
 
 
@@ -49,9 +61,11 @@ class InvoiceProduct(models.Model):
     invoice = models.OneToOneField(
         Invoice, on_delete=models.CASCADE, primary_key=True)
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    discount = models.FloatField()
-    packing_charges = models.DecimalField(max_digits=3, decimal_places=2)
+    price = models.DecimalField(
+        max_digits=10, decimal_places=2, validators=[MinValueValidator(1)])
+    discount = models.FloatField(validators=[MinValueValidator(0)])
+    packing_charges = models.DecimalField(
+        max_digits=3, decimal_places=2, validators=[MinValueValidator(0)])
     quantity = models.PositiveBigIntegerField()
 
 
