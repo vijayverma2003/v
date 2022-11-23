@@ -7,6 +7,12 @@ class Product(models.Model):
     tax = models.DecimalField(max_digits=4, decimal_places=2)
     unit = models.CharField(max_length=3)
 
+    def __str__(self) -> str:
+        return self.name
+
+    class Meta:
+        ordering = ['name']
+
 
 class Stock(models.Model):
     value = models.IntegerField()
