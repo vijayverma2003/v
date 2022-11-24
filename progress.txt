@@ -13,4 +13,8 @@ Connected MySQL by installing mysqlclient and change in settings
 
 // 23/11/2022
 
-Created a superuser for admin interface
+Created a superuser for admin interface.
+Updated style and other things for products, customers and invoices administration.
+
+// 24/11/2022
+
