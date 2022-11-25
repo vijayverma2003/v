@@ -2,13 +2,10 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework.mixins import ListModelMixin, CreateModelMixin
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.viewsets import ModelViewSet
 
-from .models import Product
-from .serializers import ProductSerializer
+from .models import Product, InvoiceItem, Stock
+from .serializers import ProductSerializer, StockSerializer
 
 # Create your views here.
 
@@ -17,61 +14,19 @@ class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-    def delete(self, request, pk):
-        product = get_object_or_404(Product, pk=pk)
-        if product.invoiceitems.count() > 0:
+    def destroy(self, request, *args, **kwargs):
+        if InvoiceItem.objects.filter(product_id=kwargs['pk']).count() > 0:
             return Response({'error': 'Product can not be deleted because it is associated with an invoice item.'},
                             status=status.HTTP_405_METHOD_NOT_ALLOWED)
-        product.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+
+        return super().destroy(request, *args, **kwargs)
 
 
-# class ProductList(ListCreateAPIView):
-#     queryset = Product.objects.all()
-#     serializer_class = ProductSerializer
+class StockViewSet(ModelViewSet):
+    serializer_class = StockSerializer
 
+    def get_queryset(self):
+        return Stock.objects.filter(product_id=self.kwargs['product_pk'])
 
-# class ProductDetail(RetrieveUpdateDestroyAPIView):
-#     queryset = Product.objects.all()
-#     serializer_class = ProductSerializer
-
-#     def delete(self, request, pk):
-#         product = get_object_or_404(Product, pk=pk)
-#         if product.invoiceitems.count() > 0:
-#             return Response({'error': 'Product can not be deleted because it is associated with an invoice item.'},
-#                             status=status.HTTP_405_METHOD_NOT_ALLOWED)
-#         product.delete()
-#         return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-# @api_view(['GET', 'POST'])
-# def product_list(request):
-#     if request.method == 'GET':
-#         queryset = Product.objects.all()
-#         serializer = ProductSerializer(queryset, many=True)
-#         return Response(serializer.data)
-#     elif request.method == 'POST':
-#         serializer = ProductSerializer(data=request.data)
-#         serializer.is_valid(raise_exception=True)
-#         serializer.save()
-#         return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-
-# @api_view(['GET', 'PUT', 'DELETE'])
-# def product_detail(request, id):
-#     product = Product.objects.get(pk=id)
-#     if request.method == 'GET':
-#         product = get_object_or_404(Product, pk=id)
-#         serializer = ProductSerializer(product)
-#         return Response(serializer.data)
-#     elif request.method == 'PUT':
-#         serializer = ProductSerializer(product, data=request.data)
-#         serializer.is_valid(raise_exception=True)
-#         serializer.save()
-#         return Response(serializer.data, status=status.HTTP_201_CREATED)
-#     elif request.method == 'DELETE':
-#         if product.invoiceitems.count() > 0:
-#             return Response({'error': 'Product can not be deleted because it is associated with an invoice item.'},
-#                             status=status.HTTP_405_METHOD_NOT_ALLOWED)
-#         product.delete()
-#         return Response(status=status.HTTP_204_NO_CONTENT)
+    def get_serializer_context(self):
+        return {'product_id': self.kwargs['product_pk']}

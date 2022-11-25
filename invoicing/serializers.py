@@ -5,7 +5,11 @@ from .models import Product, Stock
 class StockSerializer(serializers.ModelSerializer):
     class Meta:
         model = Stock
-        fields = '__all__'
+        fields = ['id', 'value', 'added_on']
+
+    def create(self, validated_data):
+        product_id = self.context['product_id']
+        return Stock.objects.create(product_id=product_id, **validated_data)
 
 
 class ProductSerializer(serializers.ModelSerializer):
