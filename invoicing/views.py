@@ -1,18 +1,22 @@
-from django.shortcuts import get_object_or_404
 from rest_framework import status
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.filters import SearchFilter, OrderingFilter
 
 from .models import Product, InvoiceItem, Stock
 from .serializers import ProductSerializer, StockSerializer
+from .pagination import DefaultPagination
 
 # Create your views here.
 
 
 class ProductViewSet(ModelViewSet):
+    filter_backends = [SearchFilter, OrderingFilter]
+    ordering_fields = ['price', 'tax']
     queryset = Product.objects.all()
+    search_fields = ['name']
     serializer_class = ProductSerializer
+    pagination_class = DefaultPagination
 
     def destroy(self, request, *args, **kwargs):
         if InvoiceItem.objects.filter(product_id=kwargs['pk']).count() > 0:
