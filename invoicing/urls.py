@@ -5,6 +5,7 @@ from . import views
 router = routers.DefaultRouter()
 
 router.register('products', views.ProductViewSet)
+router.register('invoices', views.InvoiceViewSet)
 
 products_router = routers.NestedDefaultRouter(
     router, 'products', lookup='product')

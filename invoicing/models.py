@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.validators import MinValueValidator
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class Product(models.Model):
@@ -59,15 +59,16 @@ class Invoice(models.Model):
 
 
 class InvoiceItem(models.Model):
-    invoice = models.OneToOneField(
-        Invoice, on_delete=models.CASCADE, primary_key=True)
+    invoice = models.ForeignKey(
+        Invoice, on_delete=models.CASCADE, related_name='invoiceitems')
     product = models.ForeignKey(
-        Product, on_delete=models.PROTECT, related_name='invoiceitems')
+        Product, on_delete=models.PROTECT, related_name='product')
     price = models.DecimalField(
         max_digits=10, decimal_places=2, validators=[MinValueValidator(1)])
-    discount = models.FloatField(validators=[MinValueValidator(0)])
+    discount = models.FloatField(
+        validators=[MinValueValidator(0), MaxValueValidator(100)], default=0)
     packing_charges = models.DecimalField(
-        max_digits=3, decimal_places=2, validators=[MinValueValidator(0)])
+        max_digits=3, decimal_places=2, validators=[MinValueValidator(0)], default=0)
     quantity = models.PositiveBigIntegerField()
 
     class Meta:

@@ -3,8 +3,8 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import SearchFilter, OrderingFilter
 
-from .models import Product, InvoiceItem, Stock
-from .serializers import ProductSerializer, StockSerializer
+from .models import Product, Stock, Invoice, InvoiceItem
+from .serializers import ProductSerializer, StockSerializer, InvoiceSerializer
 from .pagination import DefaultPagination
 
 # Create your views here.
@@ -34,3 +34,8 @@ class StockViewSet(ModelViewSet):
 
     def get_serializer_context(self):
         return {'product_id': self.kwargs['product_pk']}
+
+
+class InvoiceViewSet(ModelViewSet):
+    queryset = Invoice.objects.all()
+    serializer_class = InvoiceSerializer
