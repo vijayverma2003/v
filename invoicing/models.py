@@ -52,9 +52,8 @@ class Invoice(models.Model):
     number = models.CharField(max_length=55)
     date = models.DateField()
     due_date = models.DateField()
-    total = models.DecimalField(max_digits=10, decimal_places=2)
-    tax = models.DecimalField(max_digits=10, decimal_places=2)
-    terms = models.TextField(max_length=2000, default='')
+    terms = models.TextField(
+        max_length=2000, blank=True, default='')
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
 
 
