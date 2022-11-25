@@ -38,14 +38,15 @@ class CustomerAdmin(admin.ModelAdmin):
 
 
 class InvoiceProductInline(admin.TabularInline):
-    model = models.InvoiceProduct
+    model = models.InvoiceItem
     autocomplete_fields = ['product']
     min_num = 1
 
 
 @admin.register(models.Invoice)
 class InvoiceAdmin(admin.ModelAdmin):
-    fields = ['number', 'date', 'due_date', 'terms', 'customer']
+    fields = ['number', 'date', 'due_date',
+              'terms', 'customer', 'total', 'tax']
     autocomplete_fields = ['customer']
     inlines = [InvoiceProductInline]
     list_display = ['number', 'date', 'due_date',

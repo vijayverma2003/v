@@ -18,3 +18,7 @@ Updated style and other things for products, customers and invoices administrati
 
 // 24/11/2022
 
+We added serilizers for Product, Stock, Customer and Invoice models.
+
+// 25/11/2022
+

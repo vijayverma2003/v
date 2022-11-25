@@ -19,7 +19,8 @@ class Product(models.Model):
 class Stock(models.Model):
     value = models.PositiveIntegerField()
     added_on = models.DateField(auto_now=True)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(
+        Product, on_delete=models.CASCADE, related_name='stock')
 
 
 class Customer(models.Model):
@@ -57,10 +58,11 @@ class Invoice(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
 
 
-class InvoiceProduct(models.Model):
+class InvoiceItem(models.Model):
     invoice = models.OneToOneField(
         Invoice, on_delete=models.CASCADE, primary_key=True)
-    product = models.ForeignKey(Product, on_delete=models.PROTECT)
+    product = models.ForeignKey(
+        Product, on_delete=models.PROTECT, related_name='invoiceitems')
     price = models.DecimalField(
         max_digits=10, decimal_places=2, validators=[MinValueValidator(1)])
     discount = models.FloatField(validators=[MinValueValidator(0)])
