@@ -70,6 +70,9 @@ class InvoiceItem(models.Model):
         max_digits=3, decimal_places=2, validators=[MinValueValidator(0)])
     quantity = models.PositiveBigIntegerField()
 
+    class Meta:
+        unique_together = [['invoice', 'product']]
+
 
 class Transport(models.Model):
     invoice = models.OneToOneField(
