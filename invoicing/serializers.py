@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, Stock, Invoice, InvoiceItem, Transport
+from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment
 from .utils import calculate_total_cost, calculate_total_tax
 
 
@@ -107,3 +107,13 @@ class CreateInvoiceSerializer(serializers.ModelSerializer):
         model = Invoice
         fields = ['id', 'number', 'date', 'due_date',
                   'customer', 'transport']
+
+
+class PaymentSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = ['id', 'amount', 'datetime', 'mode']
+        model = Payment
+
+    def create(self, validated_data):
+        invoice_id = self.context['invoice_id']
+        return Payment.objects.create(invoice_id=invoice_id, **validated_data)

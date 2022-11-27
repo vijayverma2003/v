@@ -20,5 +20,8 @@ invoices_router = routers.NestedDefaultRouter(
 invoices_router.register(
     'items', views.InvoiceItemViewSet, basename='invoice-item')
 
+invoices_router.register(
+    'payments', views.PaymentViewSet, basename='invoice-payment')
+
 
 urlpatterns = router.urls + products_router.urls + invoices_router.urls
