@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, Stock, Invoice, InvoiceItem
+from .models import Product, Stock, Invoice, InvoiceItem, Transport
 from .utils import calculate_total_cost, calculate_total_tax
 
 
@@ -26,6 +26,12 @@ class ProductSerializer(serializers.ModelSerializer):
         return product.price + product.price * (product.tax / 100)
 
 
+class TransportSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = ['id', 'name', 'transporter_id', 'mode']
+        model = Transport
+
+
 class SimpleProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
@@ -45,8 +51,30 @@ class InvoiceItemSerializer(serializers.ModelSerializer):
         return calculate_total_cost(invoiceitem)
 
 
+class AddInvoiceItemSerializer(serializers.ModelSerializer):
+    product_id = serializers.IntegerField()
+
+    def validate_product_id(self, value):
+        if not Product.objects.filter(pk=value).exists():
+            raise serializers.ValidationError(
+                'No product with the given ID was found.')
+        return value
+
+    class Meta:
+        model = InvoiceItem
+        fields = ['id', 'product_id', 'price',
+                  'discount', 'packing_charges', 'quantity']
+
+    def create(self, validated_data):
+        invoice_id = self.context.get('invoice_id')
+        return InvoiceItem.objects.create(invoice_id=invoice_id, **validated_data)
+
+
 class InvoiceSerializer(serializers.ModelSerializer):
-    items = InvoiceItemSerializer(many=True, source='invoiceitems')
+    items = InvoiceItemSerializer(
+        many=True, source='invoiceitems', read_only=True)
+    transport = TransportSerializer()
+
     total_cost = serializers.SerializerMethodField(
         method_name='calculate_total_cost')
     total_tax = serializers.SerializerMethodField(
@@ -55,7 +83,7 @@ class InvoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Invoice
         fields = ['id', 'number', 'date', 'due_date',
-                  'customer', 'customer', 'items', 'total_cost', 'total_tax']
+                  'customer', 'items', 'total_cost', 'total_tax', 'transport']
 
     def calculate_total_cost(self, invoice):
         total_cost = 0
@@ -72,3 +100,10 @@ class InvoiceSerializer(serializers.ModelSerializer):
             total_tax += calculate_total_tax(item)
 
         return total_tax
+
+
+class CreateInvoiceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Invoice
+        fields = ['id', 'number', 'date', 'due_date',
+                  'customer', 'transport']

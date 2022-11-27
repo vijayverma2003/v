@@ -48,6 +48,15 @@ class Address(models.Model):
         return address
 
 
+class Transport(models.Model):
+    name = models.CharField(max_length=255)
+    mode = models.CharField(max_length=55)
+    transporter_id = models.CharField(max_length=55)
+
+    def __str__(self) -> str:
+        return self.name + ' - ' + self.transporter_id
+
+
 class Invoice(models.Model):
     number = models.CharField(max_length=55)
     date = models.DateField()
@@ -55,6 +64,7 @@ class Invoice(models.Model):
     terms = models.TextField(
         max_length=2000, blank=True, default='')
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
+    transport = models.ForeignKey(Transport, on_delete=models.PROTECT)
 
 
 class InvoiceItem(models.Model):
@@ -67,19 +77,8 @@ class InvoiceItem(models.Model):
     discount = models.FloatField(
         validators=[MinValueValidator(0), MaxValueValidator(100)], default=0)
     packing_charges = models.DecimalField(
-        max_digits=3, decimal_places=2, validators=[MinValueValidator(0)], default=0)
+        max_digits=10, decimal_places=2, validators=[MinValueValidator(0)], default=0)
     quantity = models.PositiveBigIntegerField()
-
-    class Meta:
-        unique_together = [['invoice', 'product']]
-
-
-class Transport(models.Model):
-    invoice = models.OneToOneField(
-        Invoice, on_delete=models.CASCADE, primary_key=True)
-    name = models.CharField(max_length=255)
-    mode = models.CharField(max_length=55)
-    transporter_id = models.CharField(max_length=55)
 
 
 class Payment(models.Model):

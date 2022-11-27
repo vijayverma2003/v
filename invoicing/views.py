@@ -3,8 +3,8 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import SearchFilter, OrderingFilter
 
-from .models import Product, Stock, Invoice, InvoiceItem
-from .serializers import ProductSerializer, StockSerializer, InvoiceSerializer
+from .models import Product, Stock, Invoice, InvoiceItem, Transport
+from .serializers import ProductSerializer, StockSerializer, InvoiceSerializer, TransportSerializer, AddInvoiceItemSerializer, InvoiceItemSerializer, CreateInvoiceSerializer
 from .pagination import DefaultPagination
 
 # Create your views here.
@@ -37,5 +37,28 @@ class StockViewSet(ModelViewSet):
 
 
 class InvoiceViewSet(ModelViewSet):
-    queryset = Invoice.objects.all()
-    serializer_class = InvoiceSerializer
+    queryset = Invoice.objects.prefetch_related('invoiceitems__product').all()
+
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return CreateInvoiceSerializer
+        return InvoiceSerializer
+
+
+class TransportViewSet(ModelViewSet):
+    queryset = Transport.objects.all()
+    serializer_class = TransportSerializer
+
+
+class InvoiceItemViewSet(ModelViewSet):
+
+    def get_queryset(self):
+        return InvoiceItem.objects.filter(invoice_id=self.kwargs['invoice_pk']).select_related('product')
+
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return AddInvoiceItemSerializer
+        return InvoiceItemSerializer
+
+    def get_serializer_context(self):
+        return {'invoice_id': self.kwargs['invoice_pk']}

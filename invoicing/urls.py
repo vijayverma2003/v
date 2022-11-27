@@ -6,6 +6,7 @@ router = routers.DefaultRouter()
 
 router.register('products', views.ProductViewSet)
 router.register('invoices', views.InvoiceViewSet)
+router.register('transport', views.TransportViewSet)
 
 products_router = routers.NestedDefaultRouter(
     router, 'products', lookup='product')
@@ -13,4 +14,11 @@ products_router = routers.NestedDefaultRouter(
 products_router.register('stock', views.StockViewSet, basename='product-stock')
 
 
-urlpatterns = router.urls + products_router.urls
+invoices_router = routers.NestedDefaultRouter(
+    router, 'invoices', lookup='invoice')
+
+invoices_router.register(
+    'items', views.InvoiceItemViewSet, basename='invoice-item')
+
+
+urlpatterns = router.urls + products_router.urls + invoices_router.urls
