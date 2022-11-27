@@ -3,9 +3,19 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import SearchFilter, OrderingFilter
 
-from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment
-from .serializers import ProductSerializer, StockSerializer, InvoiceSerializer, PaymentSerializer, TransportSerializer, AddInvoiceItemSerializer, InvoiceItemSerializer, CreateInvoiceSerializer
-from .pagination import DefaultPagination
+# from .pagination import DefaultPagination
+from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Address
+from .serializers import AddInvoiceItemSerializer,\
+    AddressSerializer,\
+    CreateInvoiceSerializer,\
+    CustomerSerializer,\
+    InvoiceItemSerializer,\
+    InvoiceSerializer,\
+    PaymentSerializer,\
+    ProductSerializer,\
+    StockSerializer,\
+    TransportSerializer\
+
 
 # Create your views here.
 
@@ -16,7 +26,7 @@ class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     search_fields = ['name']
     serializer_class = ProductSerializer
-    pagination_class = DefaultPagination
+    # pagination_class = DefaultPagination
 
     def destroy(self, request, *args, **kwargs):
         if InvoiceItem.objects.filter(product_id=kwargs['pk']).count() > 0:
@@ -34,6 +44,21 @@ class StockViewSet(ModelViewSet):
 
     def get_serializer_context(self):
         return {'product_id': self.kwargs['product_pk']}
+
+
+class CustomerViewSet(ModelViewSet):
+    queryset = Customer.objects.all()
+    serializer_class = CustomerSerializer
+
+
+class AddressViewSet(ModelViewSet):
+    serializer_class = AddressSerializer
+
+    def get_queryset(self):
+        return Address.objects.filter(customer_id=self.kwargs.get('customer_pk'))
+
+    def get_serializer_context(self):
+        return {'customer_id': self.kwargs.get('customer_pk')}
 
 
 class InvoiceViewSet(ModelViewSet):
