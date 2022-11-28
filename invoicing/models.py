@@ -30,6 +30,8 @@ class Customer(models.Model):
     name = models.CharField(max_length=255)
     phone = models.CharField(max_length=55)
     email = models.EmailField(max_length=55)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return self.name
@@ -55,6 +57,8 @@ class Transport(models.Model):
     name = models.CharField(max_length=255)
     mode = models.CharField(max_length=55)
     transporter_id = models.CharField(max_length=55)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return self.name + ' - ' + self.transporter_id
@@ -68,6 +72,8 @@ class Invoice(models.Model):
         max_length=2000, blank=True, default='')
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
     transport = models.ForeignKey(Transport, on_delete=models.PROTECT)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
 
 
 class InvoiceItem(models.Model):
