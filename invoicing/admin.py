@@ -10,10 +10,25 @@ from .utils import calculate_total_cost, calculate_total_tax
 
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'price', 'unit', 'tax']
+    list_display = ['name', 'price', 'unit', 'tax', 'stock_data']
     list_per_page = 10
     ordering = ['name', 'price', 'tax']
     search_fields = ['name__istartswith']
+
+    def stock_data(self, product):
+        url = (
+            reverse('admin:invoicing_stock_changelist') +
+            '?' +
+            urlencode({'product_id': product.id})
+        )
+        return format_html('<a href="{}">Stock Data</a>', url)
+
+
+@admin.register(models.Stock)
+class StockAdmin(admin.ModelAdmin):
+    list_display = ['added_on', 'product', 'value']
+    list_per_page = 10
+    ordering = ['added_on']
 
 
 @admin.register(models.Customer)
@@ -47,11 +62,11 @@ class InvoiceProductInline(admin.TabularInline):
 @admin.register(models.Invoice)
 class InvoiceAdmin(admin.ModelAdmin):
     fields = ['number', 'date', 'due_date',
-              'terms', 'customer']
+              'terms', 'customer', 'transport']
     autocomplete_fields = ['customer']
     inlines = [InvoiceProductInline]
-    list_display = ['number', 'date', 'due_date',
-                    'grand_total', 'customer_name', 'total_cost', 'total_tax']
+    list_display = ['number', 'date', 'grand_total',
+                    'customer_name', 'payments_data', 'transporter']
     list_select_related = ['customer']
     list_per_page = 10
     ordering = ['number']
@@ -79,3 +94,35 @@ class InvoiceAdmin(admin.ModelAdmin):
             total_tax += calculate_total_tax(item)
 
         return total_tax
+
+    def payments_data(self, invoice):
+        url = (
+            reverse('admin:invoicing_payment_changelist') +
+            '?' +
+            urlencode({'invoice_id': invoice.id})
+        )
+
+        return format_html('<a href="{}">Payments</a>', url)
+
+    def transporter(self, invoice):
+        url = (
+            reverse('admin:invoicing_transport_changelist') +
+            '?' +
+            urlencode({'transport_id': invoice.transport.id})
+        )
+
+        return format_html('<a href="{}">{}</a>', url, invoice.transport.transporter_id)
+
+
+@admin.register(models.Payment)
+class PaymentAdmin(admin.ModelAdmin):
+    list_display = ['invoice', 'amount', 'datetime', 'mode']
+    list_per_page = 10
+    ordering = ['datetime']
+
+
+@admin.register(models.Transport)
+class TransportAdmin(admin.ModelAdmin):
+    list_display = ['name', 'transporter_id', 'mode']
+    list_per_page = 10
+    ordering = ['mode']
