@@ -5,8 +5,6 @@ from django.urls import reverse
 from . import models
 from .utils import calculate_total_cost, calculate_total_tax
 
-# Register your models here.
-
 
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
@@ -63,7 +61,7 @@ class InvoiceProductInline(admin.TabularInline):
 class InvoiceAdmin(admin.ModelAdmin):
     fields = ['number', 'date', 'due_date',
               'terms', 'customer', 'transport']
-    autocomplete_fields = ['customer']
+    autocomplete_fields = ['customer', 'transport']
     inlines = [InvoiceProductInline]
     list_display = ['number', 'date', 'grand_total',
                     'customer_name', 'payments_data', 'transporter']
@@ -126,3 +124,4 @@ class TransportAdmin(admin.ModelAdmin):
     list_display = ['name', 'transporter_id', 'mode']
     list_per_page = 10
     ordering = ['mode']
+    search_fields = ['name']
