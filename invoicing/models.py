@@ -71,7 +71,8 @@ class Invoice(models.Model):
     terms = models.TextField(
         max_length=2000, blank=True, default='')
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
-    transport = models.ForeignKey(Transport, on_delete=models.PROTECT)
+    transport = models.ForeignKey(
+        Transport, on_delete=models.PROTECT, blank=True, null=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
 

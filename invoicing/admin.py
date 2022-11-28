@@ -10,6 +10,7 @@ from .utils import calculate_total_cost, calculate_total_tax
 class ProductAdmin(admin.ModelAdmin):
     autocomplete_fields = ['user']
     list_display = ['name', 'price', 'unit', 'tax', 'stock_data']
+    list_filter = ['user']
     list_per_page = 10
     ordering = ['name', 'price', 'tax']
     search_fields = ['name__istartswith']
@@ -30,10 +31,17 @@ class StockAdmin(admin.ModelAdmin):
     ordering = ['added_on']
 
 
+class AddressInline(admin.StackedInline):
+    model = models.Address
+    max_num = 1
+
+
 @admin.register(models.Customer)
 class CustomerAdmin(admin.ModelAdmin):
+    autocomplete_fields = ['user']
+    inlines = [AddressInline]
     list_display = ['name', 'phone', 'email', 'address', 'invoice_count']
-    list_filter = ['address__country']
+    list_filter = ['address__country', 'user']
     list_per_page = 10
     list_select_related = ['address']
     search_fields = ['name__istartswith']
@@ -60,14 +68,15 @@ class InvoiceProductInline(admin.TabularInline):
 
 @admin.register(models.Invoice)
 class InvoiceAdmin(admin.ModelAdmin):
-    fields = ['number', 'date', 'due_date',
+    autocomplete_fields = ['customer', 'transport', 'user']
+    fields = ['user', 'number', 'date', 'due_date',
               'terms', 'customer', 'transport']
-    autocomplete_fields = ['customer', 'transport']
     inlines = [InvoiceProductInline]
     list_display = ['number', 'date', 'grand_total',
                     'customer_name', 'payments_data', 'transporter']
-    list_select_related = ['customer']
+    list_filter = ['user']
     list_per_page = 10
+    list_select_related = ['customer']
     ordering = ['number']
 
     def grand_total(self, invoice):
@@ -104,13 +113,15 @@ class InvoiceAdmin(admin.ModelAdmin):
         return format_html('<a href="{}">Payments</a>', url)
 
     def transporter(self, invoice):
-        url = (
-            reverse('admin:invoicing_transport_changelist') +
-            '?' +
-            urlencode({'transport_id': invoice.transport.id})
-        )
+        if invoice.transport:
+            url = (
+                reverse('admin:invoicing_transport_changelist') +
+                '?' +
+                urlencode({'transport_id': invoice.transport.id})
+            )
 
-        return format_html('<a href="{}">{}</a>', url, invoice.transport.transporter_id)
+            return format_html('<a href="{}">{}</a>', url, invoice.transport.transporter_id)
+        return "Doesn't exist"
 
 
 @admin.register(models.Payment)
@@ -122,7 +133,9 @@ class PaymentAdmin(admin.ModelAdmin):
 
 @admin.register(models.Transport)
 class TransportAdmin(admin.ModelAdmin):
+    autocomplete_fields = ['user']
     list_display = ['name', 'transporter_id', 'mode']
+    list_filter = ['user']
     list_per_page = 10
     ordering = ['mode']
     search_fields = ['name']
