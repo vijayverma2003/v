@@ -8,6 +8,7 @@ from .utils import calculate_total_cost, calculate_total_tax
 
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
+    autocomplete_fields = ['user']
     list_display = ['name', 'price', 'unit', 'tax', 'stock_data']
     list_per_page = 10
     ordering = ['name', 'price', 'tax']
