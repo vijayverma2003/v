@@ -3,6 +3,21 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.conf import settings
 
 
+class Firm(models.Model):
+    name = models.CharField(max_length=255)
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+
+class Address(models.Model):
+    street = models.CharField(max_length=255, null=True, blank=True)
+    city = models.CharField(max_length=55)
+    state = models.CharField(max_length=55)
+    country = models.CharField(max_length=55)
+    firm = models.OneToOneField(
+        Firm, on_delete=models.CASCADE, primary_key=True)
+
+
 class Product(models.Model):
     name = models.CharField(max_length=255)
     price = models.DecimalField(

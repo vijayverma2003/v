@@ -31,9 +31,25 @@ class StockAdmin(admin.ModelAdmin):
     ordering = ['added_on']
 
 
-# class AddressInline(admin.StackedInline):
-#     model = models.Address
-#     max_num = 1
+class AddressInline(admin.StackedInline):
+    model = models.Address
+    max_num = 1
+
+
+@admin.register(models.Firm)
+class FirmAdmin(admin.ModelAdmin):
+    list_display = ['user', 'name', 'address_complete']
+    inlines = [AddressInline]
+    list_per_page = 10
+    list_filter = ['address__country']
+    list_select_related = ['address']
+
+    def address_complete(self, firm):
+        address = ''
+        if firm.address.street:
+            address += f'{firm.address.street}, '
+        address += f'{firm.address.city}, {firm.address.state}, {firm.address.country}'
+        return address
 
 
 @admin.register(models.Customer)

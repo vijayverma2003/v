@@ -4,16 +4,19 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import SearchFilter, OrderingFilter
 
 # from .pagination import DefaultPagination
-from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer
+from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Firm, Address
 from .serializers import AddInvoiceItemSerializer,\
+    AddressSerializer,\
     CreateInvoiceSerializer,\
     CustomerSerializer,\
+    FirmSerializer,\
     InvoiceItemSerializer,\
     InvoiceSerializer,\
     PaymentSerializer,\
     ProductSerializer,\
     StockSerializer,\
     TransportSerializer\
+
 
 
 # Create your views here.
@@ -48,16 +51,6 @@ class StockViewSet(ModelViewSet):
 class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
-
-
-# class AddressViewSet(ModelViewSet):
-#     serializer_class = AddressSerializer
-
-#     def get_queryset(self):
-#         return Address.objects.filter(customer_id=self.kwargs.get('customer_pk'))
-
-#     def get_serializer_context(self):
-#         return {'customer_id': self.kwargs.get('customer_pk')}
 
 
 class InvoiceViewSet(ModelViewSet):
@@ -97,3 +90,20 @@ class PaymentViewSet(ModelViewSet):
 
     def get_serializer_context(self):
         return {'invoice_id': self.kwargs['invoice_pk']}
+
+
+class FirmViewSet(ModelViewSet):
+    serializer_class = FirmSerializer
+
+    def get_queryset(self):
+        return Firm.objects.select_related('address').all()
+
+
+class AddressViewSet(ModelViewSet):
+    serializer_class = AddressSerializer
+
+    def get_queryset(self):
+        return Address.objects.filter(pk=self.kwargs['firm_pk'])
+
+    def get_serializer_context(self):
+        return {'firm_id': self.kwargs['firm_pk']}
