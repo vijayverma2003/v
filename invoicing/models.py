@@ -30,27 +30,15 @@ class Customer(models.Model):
     name = models.CharField(max_length=255)
     phone = models.CharField(max_length=55)
     email = models.EmailField(max_length=55)
+    street = models.CharField(max_length=255, null=True, blank=True)
+    city = models.CharField(max_length=55)
+    state = models.CharField(max_length=55)
+    country = models.CharField(max_length=55)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return self.name
-
-
-class Address(models.Model):
-    street = models.CharField(max_length=255, null=True, blank=True)
-    city = models.CharField(max_length=55)
-    state = models.CharField(max_length=55)
-    country = models.CharField(max_length=55)
-    customer = models.OneToOneField(
-        Customer, on_delete=models.CASCADE, primary_key=True)
-
-    def __str__(self) -> str:
-        address = ''
-        if self.street:
-            address += f'{self.street}, '
-        address += f'{self.city}, {self.state}, {self.country}'
-        return address
 
 
 class Transport(models.Model):

@@ -31,19 +31,18 @@ class StockAdmin(admin.ModelAdmin):
     ordering = ['added_on']
 
 
-class AddressInline(admin.StackedInline):
-    model = models.Address
-    max_num = 1
+# class AddressInline(admin.StackedInline):
+#     model = models.Address
+#     max_num = 1
 
 
 @admin.register(models.Customer)
 class CustomerAdmin(admin.ModelAdmin):
     autocomplete_fields = ['user']
-    inlines = [AddressInline]
-    list_display = ['name', 'phone', 'email', 'address', 'invoice_count']
-    list_filter = ['address__country', 'user']
+    list_display = ['name', 'phone', 'email', 'country', 'invoice_count']
+    list_filter = ['country', 'user']
     list_per_page = 10
-    list_select_related = ['address']
+
     search_fields = ['name__istartswith']
 
     def invoice_count(self, customer):

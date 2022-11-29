@@ -28,8 +28,8 @@ invoices_router.register(
 customers_router = routers.NestedDefaultRouter(
     router, 'customers', lookup='customer')
 
-customers_router.register(
-    'address', views.AddressViewSet, basename='customer-address')
+# customers_router.register(
+#     'address', views.AddressViewSet, basename='customer-address')
 
 
 urlpatterns = router.urls + products_router.urls + \

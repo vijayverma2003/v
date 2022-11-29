@@ -4,9 +4,8 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import SearchFilter, OrderingFilter
 
 # from .pagination import DefaultPagination
-from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Address
+from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer
 from .serializers import AddInvoiceItemSerializer,\
-    AddressSerializer,\
     CreateInvoiceSerializer,\
     CustomerSerializer,\
     InvoiceItemSerializer,\
@@ -51,14 +50,14 @@ class CustomerViewSet(ModelViewSet):
     serializer_class = CustomerSerializer
 
 
-class AddressViewSet(ModelViewSet):
-    serializer_class = AddressSerializer
+# class AddressViewSet(ModelViewSet):
+#     serializer_class = AddressSerializer
 
-    def get_queryset(self):
-        return Address.objects.filter(customer_id=self.kwargs.get('customer_pk'))
+#     def get_queryset(self):
+#         return Address.objects.filter(customer_id=self.kwargs.get('customer_pk'))
 
-    def get_serializer_context(self):
-        return {'customer_id': self.kwargs.get('customer_pk')}
+#     def get_serializer_context(self):
+#         return {'customer_id': self.kwargs.get('customer_pk')}
 
 
 class InvoiceViewSet(ModelViewSet):
