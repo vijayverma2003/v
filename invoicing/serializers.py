@@ -3,6 +3,23 @@ from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Cu
 from .utils import calculate_total_cost, calculate_total_tax
 
 
+class AddressSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = ['street', 'city', 'state', 'country']
+        model = Address
+
+    def create(self, validated_data):
+        return Address.objects.create(firm_id=self.context.get('firm_id'), **validated_data)
+
+
+class FirmSerializer(serializers.ModelSerializer):
+    address = AddressSerializer(read_only=True)
+
+    class Meta:
+        fields = ['id', 'user', 'name', 'address']
+        model = Firm
+
+
 class StockSerializer(serializers.ModelSerializer):
     class Meta:
         model = Stock
@@ -88,10 +105,11 @@ class InvoiceSerializer(serializers.ModelSerializer):
     total_tax = serializers.SerializerMethodField(
         method_name='calculate_total_tax')
     customer = CustomerSerializer()
+    firm = FirmSerializer()
 
     class Meta:
         model = Invoice
-        fields = ['id', 'number', 'date', 'due_date',
+        fields = ['id', 'user', 'firm', 'number', 'date', 'due_date',
                   'customer', 'items', 'total_cost', 'total_tax', 'transport']
 
     def calculate_total_cost(self, invoice):
@@ -126,20 +144,3 @@ class PaymentSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         invoice_id = self.context['invoice_id']
         return Payment.objects.create(invoice_id=invoice_id, **validated_data)
-
-
-class AddressSerializer(serializers.ModelSerializer):
-    class Meta:
-        fields = ['street', 'city', 'state', 'country']
-        model = Address
-
-    def create(self, validated_data):
-        return Address.objects.create(firm_id=self.context.get('firm_id'), **validated_data)
-
-
-class FirmSerializer(serializers.ModelSerializer):
-    address = AddressSerializer(read_only=True)
-
-    class Meta:
-        fields = ['id', 'user', 'name', 'address']
-        model = Firm

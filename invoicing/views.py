@@ -2,6 +2,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import SearchFilter, OrderingFilter
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 # from .pagination import DefaultPagination
 from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Firm, Address
@@ -61,6 +62,11 @@ class InvoiceViewSet(ModelViewSet):
         if self.request.method in ['POST', 'PUT']:
             return CreateInvoiceSerializer
         return InvoiceSerializer
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]
 
 
 class TransportViewSet(ModelViewSet):

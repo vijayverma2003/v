@@ -78,6 +78,7 @@ class Invoice(models.Model):
         Transport, on_delete=models.PROTECT, blank=True, null=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
+    firm = models.ForeignKey(Firm, on_delete=models.CASCADE)
 
 
 class InvoiceItem(models.Model):
