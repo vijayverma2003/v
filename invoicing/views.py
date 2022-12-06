@@ -29,7 +29,6 @@ class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     search_fields = ['name']
     serializer_class = ProductSerializer
-    # pagination_class = DefaultPagination
 
     def destroy(self, request, *args, **kwargs):
         if InvoiceItem.objects.filter(product_id=kwargs['pk']).count() > 0:
@@ -52,6 +51,21 @@ class StockViewSet(ModelViewSet):
 class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]
+
+    def get_serializer_context(self):
+        return {'user_id': self.request.user.id}
+
+    def destroy(self, request, *args, **kwargs):
+        if Invoice.objects.filter(customer_id=kwargs['pk']).count() > 0:
+            return Response({'error': 'Customer can not be deleted because it is associated with an invoice.'},
+                            status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+        return super().destroy(request, *args, **kwargs)
 
 
 class InvoiceViewSet(ModelViewSet):

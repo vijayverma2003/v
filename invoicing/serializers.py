@@ -44,11 +44,15 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class CustomerSerializer(serializers.ModelSerializer):
+    user = serializers.IntegerField(read_only=True, source='user_id')
 
     class Meta:
-        fields = ['id', 'name', 'phone', 'email',
+        fields = ['id', 'user', 'name', 'phone', 'email',
                   'street', 'city', 'state', 'country']
         model = Customer
+
+    def create(self, validated_data):
+        return Customer.objects.create(user_id=self.context['user_id'], **validated_data)
 
 
 class TransportSerializer(serializers.ModelSerializer):
