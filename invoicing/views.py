@@ -20,9 +20,6 @@ from .serializers import AddInvoiceItemSerializer,\
 
 
 
-# Create your views here.
-
-
 class ProductViewSet(ModelViewSet):
     filter_backends = [SearchFilter, OrderingFilter]
     ordering_fields = ['price', 'tax']
@@ -36,6 +33,14 @@ class ProductViewSet(ModelViewSet):
                             status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
         return super().destroy(request, *args, **kwargs)
+
+    def get_serializer_context(self):
+        return {'user_id': self.request.user.id}
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]
 
 
 class StockViewSet(ModelViewSet):

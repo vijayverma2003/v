@@ -31,16 +31,20 @@ class StockSerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    stock = StockSerializer(many=True, read_only=True)
+    user = serializers.IntegerField(read_only=True, source='user_id')
     # price_with_tax = serializers.SerializerMethodField(
     #     method_name='calculate_tax')
-    stock = StockSerializer(many=True, read_only=True)
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'price', 'tax', 'stock']
+        fields = ['id', 'user', 'name', 'price', 'tax', 'stock']
 
     def calculate_tax(self, product: Product):
         return product.price + product.price * (product.tax / 100)
+
+    def create(self, validated_data):
+        return Product.objects.create(user_id=self.context['user_id'], **validated_data)
 
 
 class CustomerSerializer(serializers.ModelSerializer):
