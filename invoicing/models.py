@@ -5,6 +5,7 @@ from django.conf import settings
 
 class Firm(models.Model):
     name = models.CharField(max_length=255)
+    gstin = models.CharField(max_length=55, null=True, blank=True)
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
@@ -45,6 +46,7 @@ class Customer(models.Model):
     name = models.CharField(max_length=255)
     phone = models.CharField(max_length=55)
     email = models.EmailField(max_length=55)
+    gstin = models.CharField(max_length=55, null=True, blank=True)
     street = models.CharField(max_length=255, null=True, blank=True)
     city = models.CharField(max_length=55)
     state = models.CharField(max_length=55)

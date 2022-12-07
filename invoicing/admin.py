@@ -38,7 +38,7 @@ class AddressInline(admin.StackedInline):
 
 @admin.register(models.Firm)
 class FirmAdmin(admin.ModelAdmin):
-    list_display = ['user', 'name', 'address_complete']
+    list_display = ['user', 'name', 'gstin', 'address_complete']
     inlines = [AddressInline]
     list_per_page = 10
     list_filter = ['address__country']
@@ -55,24 +55,10 @@ class FirmAdmin(admin.ModelAdmin):
 @admin.register(models.Customer)
 class CustomerAdmin(admin.ModelAdmin):
     autocomplete_fields = ['user']
-    list_display = ['name', 'phone', 'email', 'country', 'invoice_count']
+    list_display = ['name', 'phone', 'email', 'country', 'gstin']
     list_filter = ['country', 'user']
     list_per_page = 10
-
     search_fields = ['name__istartswith']
-
-    def invoice_count(self, customer):
-        url = (
-            reverse('admin:invoicing_invoice_changelist') +
-            '?' +
-            urlencode({
-                'customer__id': str(customer.id)
-            })
-        )
-        return format_html('<a href="{}"> {} </>', url, customer.invoice_count)
-
-    def get_queryset(self, request):
-        return super().get_queryset(request).prefetch_related('invoice_set').annotate(invoice_count=Count('invoice'))
 
 
 class InvoiceProductInline(admin.TabularInline):
@@ -93,6 +79,7 @@ class InvoiceAdmin(admin.ModelAdmin):
     list_per_page = 10
     list_select_related = ['customer']
     ordering = ['number']
+    search_fields = ['number']
 
     def grand_total(self, invoice):
         return self.total_cost(invoice) + self.total_tax(invoice)
@@ -144,6 +131,7 @@ class PaymentAdmin(admin.ModelAdmin):
     list_display = ['invoice', 'amount', 'datetime', 'mode']
     list_per_page = 10
     ordering = ['datetime']
+    autocomplete_fields = ['invoice']
 
 
 @admin.register(models.Transport)

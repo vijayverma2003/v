@@ -17,7 +17,7 @@ class FirmSerializer(serializers.ModelSerializer):
     user = serializers.IntegerField(read_only=True, source='user_id')
 
     class Meta:
-        fields = ['id', 'user', 'name', 'address']
+        fields = ['id', 'user', 'name', 'gstin', 'address']
         model = Firm
 
     def create(self, validated_data):
@@ -55,7 +55,7 @@ class CustomerSerializer(serializers.ModelSerializer):
     user = serializers.IntegerField(read_only=True, source='user_id')
 
     class Meta:
-        fields = ['id', 'user', 'name', 'phone', 'email',
+        fields = ['id', 'user', 'name', 'gstin', 'phone', 'email',
                   'street', 'city', 'state', 'country']
         model = Customer
 
