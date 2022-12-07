@@ -5,9 +5,9 @@ from . import views
 router = routers.DefaultRouter()
 
 router.register('products', views.ProductViewSet, basename='product')
-router.register('invoices', views.InvoiceViewSet)
-router.register('transport', views.TransportViewSet)
-router.register('customers', views.CustomerViewSet)
+router.register('invoices', views.InvoiceViewSet, basename='invoice')
+router.register('transport', views.TransportViewSet, basename='transport')
+router.register('customers', views.CustomerViewSet, basename='customer')
 router.register('firms', views.FirmViewSet, basename='firm')
 
 products_router = routers.NestedDefaultRouter(

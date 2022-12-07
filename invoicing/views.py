@@ -83,7 +83,12 @@ class CustomerViewSet(ModelViewSet):
 
 class InvoiceViewSet(ModelViewSet):
     http_method_names = ['get', 'post', 'put', 'delete']
-    queryset = Invoice.objects.prefetch_related('invoiceitems__product').all()
+
+    def get_queryset(self):
+        if self.request.user.id:
+            return Invoice.objects.prefetch_related('invoiceitems__product')\
+                .filter(user_id=self.request.user.id)
+        return Invoice.objects.prefetch_related('invoiceitems__product').all()
 
     def get_serializer_class(self):
         if self.request.method in ['POST', 'PUT']:
@@ -99,6 +104,11 @@ class InvoiceViewSet(ModelViewSet):
 class TransportViewSet(ModelViewSet):
     queryset = Transport.objects.all()
     serializer_class = TransportSerializer
+
+    def get_queryset(self):
+        if self.request.user.id:
+            return Transport.objects.filter(user_id=self.request.user.id)
+        return Transport.objects.all()
 
 
 class InvoiceItemViewSet(ModelViewSet):
@@ -129,6 +139,8 @@ class FirmViewSet(ModelViewSet):
     serializer_class = FirmSerializer
 
     def get_queryset(self):
+        if self.request.user.id:
+            return Firm.objects.select_related('address').filter(user_id=self.request.user.id)
         return Firm.objects.select_related('address').all()
 
 
