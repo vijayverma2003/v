@@ -14,10 +14,14 @@ class AddressSerializer(serializers.ModelSerializer):
 
 class FirmSerializer(serializers.ModelSerializer):
     address = AddressSerializer(read_only=True)
+    user = serializers.IntegerField(read_only=True, source='user_id')
 
     class Meta:
         fields = ['id', 'user', 'name', 'address']
         model = Firm
+
+    def create(self, validated_data):
+        return Firm.objects.create(user_id=self.context['user_id'], **validated_data)
 
 
 class StockSerializer(serializers.ModelSerializer):
@@ -63,6 +67,9 @@ class TransportSerializer(serializers.ModelSerializer):
     class Meta:
         fields = ['id', 'name', 'transporter_id', 'mode']
         model = Transport
+
+    def create(self, validated_data):
+        return Transport.objects.create(user_id=self.context['user_id'], **validated_data)
 
 
 class SimpleProductSerializer(serializers.ModelSerializer):

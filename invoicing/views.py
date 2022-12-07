@@ -4,7 +4,6 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
-# from .pagination import DefaultPagination
 from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Firm, Address
 from .serializers import AddInvoiceItemSerializer,\
     AddressSerializer,\
@@ -55,6 +54,11 @@ class StockViewSet(ModelViewSet):
 
     def get_serializer_context(self):
         return {'product_id': self.kwargs['product_pk']}
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]
 
 
 class CustomerViewSet(ModelViewSet):
@@ -110,6 +114,14 @@ class TransportViewSet(ModelViewSet):
             return Transport.objects.filter(user_id=self.request.user.id)
         return Transport.objects.all()
 
+    def get_serializer_context(self):
+        return {'user_id': self.request.user.id}
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]
+
 
 class InvoiceItemViewSet(ModelViewSet):
 
@@ -124,6 +136,11 @@ class InvoiceItemViewSet(ModelViewSet):
     def get_serializer_context(self):
         return {'invoice_id': self.kwargs['invoice_pk']}
 
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]
+
 
 class PaymentViewSet(ModelViewSet):
     serializer_class = PaymentSerializer
@@ -134,6 +151,11 @@ class PaymentViewSet(ModelViewSet):
     def get_serializer_context(self):
         return {'invoice_id': self.kwargs['invoice_pk']}
 
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]
+
 
 class FirmViewSet(ModelViewSet):
     serializer_class = FirmSerializer
@@ -142,6 +164,20 @@ class FirmViewSet(ModelViewSet):
         if self.request.user.id:
             return Firm.objects.select_related('address').filter(user_id=self.request.user.id)
         return Firm.objects.select_related('address').all()
+
+    def get_serializer_context(self):
+        return {'user_id': self.request.user.id}
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]
+
+    def create(self, request, *args, **kwargs):
+        if Firm.objects.get(user_id=self.request.user.id):
+            return Response({'error': 'Firm for the requested user already exists.'},
+                            status=status.HTTP_405_METHOD_NOT_ALLOWED)
+        return super().create(request, *args, **kwargs)
 
 
 class AddressViewSet(ModelViewSet):
@@ -152,3 +188,8 @@ class AddressViewSet(ModelViewSet):
 
     def get_serializer_context(self):
         return {'firm_id': self.kwargs['firm_pk']}
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]
