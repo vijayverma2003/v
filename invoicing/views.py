@@ -23,16 +23,13 @@ from .serializers import AddInvoiceItemSerializer,\
 class ProductViewSet(ModelViewSet):
     filter_backends = [SearchFilter, OrderingFilter]
     ordering_fields = ['price', 'tax']
-    queryset = Product.objects.all()
     search_fields = ['name']
     serializer_class = ProductSerializer
 
-    def destroy(self, request, *args, **kwargs):
-        if InvoiceItem.objects.filter(product_id=kwargs['pk']).count() > 0:
-            return Response({'error': 'Product can not be deleted because it is associated with an invoice item.'},
-                            status=status.HTTP_405_METHOD_NOT_ALLOWED)
-
-        return super().destroy(request, *args, **kwargs)
+    def get_queryset(self):
+        if self.request.user.id:
+            return Product.objects.filter(user_id=self.request.user.id)
+        return Product.objects.all()
 
     def get_serializer_context(self):
         return {'user_id': self.request.user.id}
@@ -41,6 +38,13 @@ class ProductViewSet(ModelViewSet):
         if self.request.method == 'GET':
             return [AllowAny()]
         return [IsAuthenticated()]
+
+    def destroy(self, request, *args, **kwargs):
+        if InvoiceItem.objects.filter(product_id=kwargs['pk']).count() > 0:
+            return Response({'error': 'Product can not be deleted because it is associated with an invoice item.'},
+                            status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+        return super().destroy(request, *args, **kwargs)
 
 
 class StockViewSet(ModelViewSet):
