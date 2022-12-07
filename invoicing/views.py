@@ -58,8 +58,12 @@ class StockViewSet(ModelViewSet):
 
 
 class CustomerViewSet(ModelViewSet):
-    queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
+
+    def get_queryset(self):
+        if self.request.user.id:
+            return Customer.objects.filter(user_id=self.request.user.id)
+        return Customer.objects.all()
 
     def get_permissions(self):
         if self.request.method == 'GET':
