@@ -14,7 +14,7 @@ class Firm(models.Model):
 class FirmLogo(models.Model):
     firm = models.OneToOneField(Firm,
                                 primary_key=True, on_delete=models.CASCADE, related_name='logo')
-    image = models.ImageField(upload_to='store/images',
+    image = models.ImageField(upload_to='invoicing/images',
                               validators=[validate_file_size])
 
 

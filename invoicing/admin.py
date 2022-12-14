@@ -36,10 +36,20 @@ class AddressInline(admin.StackedInline):
     max_num = 1
 
 
+class FirmLogoInline(admin.TabularInline):
+    model = models.FirmLogo
+    readonly_fields = ['thumbnail']
+    max_num = 1
+
+    def thumbnail(self, instance):
+        if instance.image.name != '':
+            return format_html(f'<img class="thumbnail" src="{instance.image.url}"/>')
+
+
 @admin.register(models.Firm)
 class FirmAdmin(admin.ModelAdmin):
     list_display = ['user', 'name', 'gstin', 'address_complete']
-    inlines = [AddressInline]
+    inlines = [AddressInline, FirmLogoInline]
     list_per_page = 10
     list_filter = ['address__country']
     list_select_related = ['address']
@@ -50,6 +60,11 @@ class FirmAdmin(admin.ModelAdmin):
             address += f'{firm.address.street}, '
         address += f'{firm.address.city}, {firm.address.state}, {firm.address.country}'
         return address
+
+    class Media:
+        css = {
+            'all': ['invoicing/styles.css']
+        }
 
 
 @admin.register(models.Customer)
