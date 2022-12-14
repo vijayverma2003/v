@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.conf import settings
+from .validators import validate_file_size
 
 
 class Firm(models.Model):
@@ -8,6 +9,13 @@ class Firm(models.Model):
     gstin = models.CharField(max_length=55, null=True, blank=True)
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+
+class FirmLogo(models.Model):
+    firm = models.OneToOneField(Firm,
+                                primary_key=True, on_delete=models.CASCADE, related_name='logo')
+    image = models.ImageField(upload_to='store/images',
+                              validators=[validate_file_size])
 
 
 class Address(models.Model):

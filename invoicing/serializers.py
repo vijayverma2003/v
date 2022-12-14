@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Address, Firm
+from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Address, Firm, FirmLogo
 from .utils import calculate_total_cost, calculate_total_tax
 
 
@@ -12,12 +12,22 @@ class AddressSerializer(serializers.ModelSerializer):
         return Address.objects.create(firm_id=self.context.get('firm_id'), **validated_data)
 
 
+class FirmLogoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FirmLogo
+        fields = ['image']
+
+    def create(self, validated_data):
+        return FirmLogo.objects.create(firm_id=self.context['firm_id'], **validated_data)
+
+
 class FirmSerializer(serializers.ModelSerializer):
     address = AddressSerializer(read_only=True)
     user = serializers.IntegerField(read_only=True, source='user_id')
+    logo = FirmLogoSerializer(read_only=True)
 
     class Meta:
-        fields = ['id', 'user', 'name', 'gstin', 'address']
+        fields = ['id', 'user', 'name', 'gstin', 'address', 'logo']
         model = Firm
 
     def create(self, validated_data):

@@ -32,6 +32,8 @@ firms_router = routers.NestedDefaultRouter(
 firms_router.register(
     'address', views.AddressViewSet, basename='firm-address')
 
+firms_router.register('logo', views.FirmLogoViewSet, basename='firm-logo')
+
 
 urlpatterns = router.urls + products_router.urls + \
     invoices_router.urls + firms_router.urls

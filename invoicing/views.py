@@ -4,11 +4,12 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
-from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Firm, Address
+from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Firm, Address, FirmLogo
 from .serializers import AddInvoiceItemSerializer,\
     AddressSerializer,\
     CreateInvoiceSerializer,\
     CustomerSerializer,\
+    FirmLogoSerializer,\
     FirmSerializer,\
     InvoiceItemSerializer,\
     InvoiceSerializer,\
@@ -162,8 +163,8 @@ class FirmViewSet(ModelViewSet):
 
     def get_queryset(self):
         if self.request.user.id:
-            return Firm.objects.select_related('address').filter(user_id=self.request.user.id)
-        return Firm.objects.select_related('address').all()
+            return Firm.objects.select_related('address', 'logo').filter(user_id=self.request.user.id)
+        return Firm.objects.select_related('address', 'logo').all()
 
     def get_serializer_context(self):
         return {'user_id': self.request.user.id}
@@ -193,3 +194,13 @@ class AddressViewSet(ModelViewSet):
         if self.request.method == 'GET':
             return [AllowAny()]
         return [IsAuthenticated()]
+
+
+class FirmLogoViewSet(ModelViewSet):
+    serializer_class = FirmLogoSerializer
+
+    def get_queryset(self):
+        return FirmLogo.objects.filter(firm_id=self.kwargs['firm_pk'])
+
+    def get_serializer_context(self):
+        return {'firm_id': self.kwargs['firm_pk']}
