@@ -23,6 +23,7 @@ admin.site.site_header = 'V Admin Panel'
 admin.site.index_title = 'Admin'
 
 urlpatterns = [
+    path('', include('core.urls')),
     path('admin/', admin.site.urls),
     path('invoicing/', include('invoicing.urls')),
     path('auth/', include('djoser.urls')),
