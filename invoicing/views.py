@@ -28,8 +28,8 @@ class ProductViewSet(ModelViewSet):
 
     def get_queryset(self):
         if self.request.user.id:
-            return Product.objects.filter(user_id=self.request.user.id)
-        return Product.objects.all()
+            return Product.objects.prefetch_related('stock').filter(user_id=self.request.user.id)
+        return Product.objects.prefetch_related('stock').all()
 
     def get_serializer_context(self):
         return {'user_id': self.request.user.id}
