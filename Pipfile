@@ -18,6 +18,7 @@ redis = "*"
 celery = "*"
 django-redis = "*"
 whitenoise = "*"
+gunicorn = "*"
 
 [dev-packages]
 autopep8 = "*"

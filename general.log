@@ -1,0 +1,8 @@
+2022-12-23 07:11:10,963 (INFO - django.utils.autoreload - Watching for file changes with StatReloader)
+2022-12-23 07:11:26,092 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-23 07:11:26,117 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-23 07:12:33,781 (INFO - django.utils.autoreload - /Users/vijay/v/v/settings/common.py changed, reloading.)
+2022-12-23 07:12:34,336 (INFO - django.utils.autoreload - Watching for file changes with StatReloader)
+2022-12-23 07:12:40,560 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-23 07:12:40,614 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-23 07:14:55,915 (WARNING - django.request - Not Found: /store/products/)
