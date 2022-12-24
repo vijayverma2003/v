@@ -6,3 +6,1026 @@
 2022-12-23 07:12:40,560 (WARNING - django.request - Unauthorized: /invoicing/products/)
 2022-12-23 07:12:40,614 (WARNING - django.request - Bad Request: /invoicing/products/)
 2022-12-23 07:14:55,915 (WARNING - django.request - Not Found: /store/products/)
+2022-12-23 11:38:21,308 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-23 11:38:21,364 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-23 11:38:45,396 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-23 11:38:45,451 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-23 11:43:16,846 (WARNING - django.request - Not Found: /invoicing/products/$1/)
+2022-12-23 11:43:45,294 (WARNING - django.request - Not Found: /invoicing/products/$1/)
+2022-12-23 11:45:11,943 (WARNING - django.request - Not Found: /invoicing/products/$1/)
+2022-12-23 11:47:08,189 (WARNING - django.request - Not Found: /invoicing/products/$1/)
+2022-12-23 11:48:24,751 (WARNING - django.request - Not Found: /invoicing/products/$1/)
+2022-12-23 11:49:18,904 (WARNING - django.request - Not Found: /invoicing/products/$1/)
+2022-12-23 11:50:17,551 (WARNING - django.request - Not Found: /invoicing/products/$1/)
+2022-12-23 11:50:39,935 (WARNING - django.request - Not Found: /invoicing/products/$1/)
+2022-12-23 11:51:21,625 (WARNING - django.request - Not Found: /invoicing/products/$1/)
+2022-12-23 11:53:14,295 (WARNING - django.request - Not Found: /invoicing/products/$1/)
+2022-12-23 11:56:07,022 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-23 11:56:07,079 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-23 11:56:28,541 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-23 11:56:28,594 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-23 11:56:58,291 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-23 11:56:58,345 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-23 11:56:58,436 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-23 11:57:03,683 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-23 11:57:03,740 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-23 11:57:03,832 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:35:49,922 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:35:49,947 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:35:50,002 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:35:50,098 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:37:54,529 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:37:54,564 (ERROR - django.request - Internal Server Error: /invoicing/customers/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1048, "Column 'user_id' cannot be null")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/vijay/v/invoicing/serializers.py", line 71, in create
+    return Customer.objects.create(user_id=self.context['user_id'], **validated_data)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 812, in save
+    self.save_base(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 863, in save_base
+    updated = self._save_table(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1006, in _save_table
+    results = self._do_insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1047, in _do_insert
+    return manager._insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 80, in execute
+    raise IntegrityError(*tuple(e.args))
+django.db.utils.IntegrityError: (1048, "Column 'user_id' cannot be null")
+2022-12-24 04:37:54,968 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:37:55,021 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:37:55,116 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:38:11,168 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:38:11,200 (ERROR - django.request - Internal Server Error: /invoicing/customers/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_customer`, CONSTRAINT `invoicing_customer_user_id_4ded8c4d_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/vijay/v/invoicing/serializers.py", line 71, in create
+    return Customer.objects.create(user_id=self.context['user_id'], **validated_data)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 812, in save
+    self.save_base(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 863, in save_base
+    updated = self._save_table(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1006, in _save_table
+    results = self._do_insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1047, in _do_insert
+    return manager._insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_customer`, CONSTRAINT `invoicing_customer_user_id_4ded8c4d_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+2022-12-24 04:38:11,614 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:38:11,669 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:38:11,763 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:40:01,295 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:40:01,443 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:40:01,472 (ERROR - django.request - Internal Server Error: /invoicing/products/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_product`, CONSTRAINT `invoicing_product_user_id_53c96d3b_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/vijay/v/invoicing/serializers.py", line 59, in create
+    return Product.objects.create(user_id=self.context['user_id'], **validated_data)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 812, in save
+    self.save_base(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 863, in save_base
+    updated = self._save_table(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1006, in _save_table
+    results = self._do_insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1047, in _do_insert
+    return manager._insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_product`, CONSTRAINT `invoicing_product_user_id_53c96d3b_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+2022-12-24 04:40:01,769 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:40:01,865 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:40:34,384 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:40:34,416 (ERROR - django.request - Internal Server Error: /invoicing/customers/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1048, "Column 'user_id' cannot be null")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/vijay/v/invoicing/serializers.py", line 71, in create
+    return Customer.objects.create(user_id=self.context['user_id'], **validated_data)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 812, in save
+    self.save_base(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 863, in save_base
+    updated = self._save_table(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1006, in _save_table
+    results = self._do_insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1047, in _do_insert
+    return manager._insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 80, in execute
+    raise IntegrityError(*tuple(e.args))
+django.db.utils.IntegrityError: (1048, "Column 'user_id' cannot be null")
+2022-12-24 04:40:34,819 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:40:34,840 (ERROR - django.request - Internal Server Error: /invoicing/products/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_product`, CONSTRAINT `invoicing_product_user_id_53c96d3b_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/vijay/v/invoicing/serializers.py", line 59, in create
+    return Product.objects.create(user_id=self.context['user_id'], **validated_data)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 812, in save
+    self.save_base(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 863, in save_base
+    updated = self._save_table(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1006, in _save_table
+    results = self._do_insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1047, in _do_insert
+    return manager._insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_product`, CONSTRAINT `invoicing_product_user_id_53c96d3b_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+2022-12-24 04:40:35,125 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:40:35,221 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:41:33,014 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:41:33,047 (ERROR - django.request - Internal Server Error: /invoicing/customers/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1048, "Column 'user_id' cannot be null")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/vijay/v/invoicing/serializers.py", line 71, in create
+    return Customer.objects.create(user_id=self.context['user_id'], **validated_data)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 812, in save
+    self.save_base(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 863, in save_base
+    updated = self._save_table(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1006, in _save_table
+    results = self._do_insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1047, in _do_insert
+    return manager._insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 80, in execute
+    raise IntegrityError(*tuple(e.args))
+django.db.utils.IntegrityError: (1048, "Column 'user_id' cannot be null")
+2022-12-24 04:41:33,454 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:41:33,476 (ERROR - django.request - Internal Server Error: /invoicing/products/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_product`, CONSTRAINT `invoicing_product_user_id_53c96d3b_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/vijay/v/invoicing/serializers.py", line 59, in create
+    return Product.objects.create(user_id=self.context['user_id'], **validated_data)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 812, in save
+    self.save_base(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 863, in save_base
+    updated = self._save_table(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1006, in _save_table
+    results = self._do_insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1047, in _do_insert
+    return manager._insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_product`, CONSTRAINT `invoicing_product_user_id_53c96d3b_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+2022-12-24 04:41:33,762 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:41:33,858 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:43:23,155 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:43:23,206 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:43:23,234 (ERROR - django.request - Internal Server Error: /invoicing/products/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_product`, CONSTRAINT `invoicing_product_user_id_53c96d3b_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/vijay/v/invoicing/serializers.py", line 59, in create
+    return Product.objects.create(user_id=self.context['user_id'], **validated_data)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 812, in save
+    self.save_base(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 863, in save_base
+    updated = self._save_table(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1006, in _save_table
+    results = self._do_insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1047, in _do_insert
+    return manager._insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_product`, CONSTRAINT `invoicing_product_user_id_53c96d3b_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+2022-12-24 04:43:23,650 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:43:23,748 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:44:03,925 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:44:03,976 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:44:04,005 (ERROR - django.request - Internal Server Error: /invoicing/products/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_product`, CONSTRAINT `invoicing_product_user_id_53c96d3b_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/vijay/v/invoicing/serializers.py", line 59, in create
+    return Product.objects.create(user_id=self.context['user_id'], **validated_data)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 812, in save
+    self.save_base(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 863, in save_base
+    updated = self._save_table(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1006, in _save_table
+    results = self._do_insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1047, in _do_insert
+    return manager._insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_product`, CONSTRAINT `invoicing_product_user_id_53c96d3b_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+2022-12-24 04:44:04,418 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:44:04,517 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:44:57,968 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:44:58,019 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:44:58,048 (ERROR - django.request - Internal Server Error: /invoicing/products/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_product`, CONSTRAINT `invoicing_product_user_id_53c96d3b_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/vijay/v/invoicing/serializers.py", line 59, in create
+    return Product.objects.create(user_id=self.context['user_id'], **validated_data)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 812, in save
+    self.save_base(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 863, in save_base
+    updated = self._save_table(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1006, in _save_table
+    results = self._do_insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1047, in _do_insert
+    return manager._insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_product`, CONSTRAINT `invoicing_product_user_id_53c96d3b_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+2022-12-24 04:44:58,461 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:44:58,559 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:45:58,174 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:45:58,224 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:45:58,253 (ERROR - django.request - Internal Server Error: /invoicing/products/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_product`, CONSTRAINT `invoicing_product_user_id_53c96d3b_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/vijay/v/invoicing/serializers.py", line 59, in create
+    return Product.objects.create(user_id=self.context['user_id'], **validated_data)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 812, in save
+    self.save_base(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 863, in save_base
+    updated = self._save_table(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1006, in _save_table
+    results = self._do_insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1047, in _do_insert
+    return manager._insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_product`, CONSTRAINT `invoicing_product_user_id_53c96d3b_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+2022-12-24 04:45:58,668 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:45:58,762 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:47:07,549 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:47:07,599 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:47:07,628 (ERROR - django.request - Internal Server Error: /invoicing/products/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_product`, CONSTRAINT `invoicing_product_user_id_53c96d3b_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/vijay/v/invoicing/serializers.py", line 59, in create
+    return Product.objects.create(user_id=self.context['user_id'], **validated_data)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 812, in save
+    self.save_base(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 863, in save_base
+    updated = self._save_table(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1006, in _save_table
+    results = self._do_insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1047, in _do_insert
+    return manager._insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_product`, CONSTRAINT `invoicing_product_user_id_53c96d3b_fk_core_user_id` FOREIGN KEY (`user_id`) REFERENCES `core_user` (`id`))')
+2022-12-24 04:47:08,043 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:47:08,137 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:49:27,619 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:49:27,670 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:49:27,721 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:49:27,815 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:49:37,038 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:49:37,087 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:49:37,138 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:49:37,233 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:49:53,704 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:49:53,755 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:49:53,808 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:49:53,902 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:50:47,378 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:50:47,436 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2022-12-24 04:50:47,462 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:50:47,513 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:50:47,609 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:50:57,558 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:50:57,614 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2022-12-24 04:50:57,636 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:50:57,687 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:50:57,782 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:52:32,739 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:52:32,790 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2022-12-24 04:52:32,965 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:52:33,020 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:52:33,115 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:53:41,751 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:53:41,802 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2022-12-24 04:53:41,853 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:53:41,906 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:53:42,000 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:53:52,357 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 04:53:52,414 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2022-12-24 04:53:52,466 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 04:53:52,519 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 04:53:52,611 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 05:21:34,088 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 05:21:34,140 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2022-12-24 05:21:34,233 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 05:21:34,410 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 05:21:34,464 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 05:21:34,560 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 05:23:04,140 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 05:23:04,192 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2022-12-24 05:23:04,282 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 05:23:04,338 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 05:23:04,391 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 05:23:04,483 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 05:23:14,063 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 05:23:14,120 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2022-12-24 05:23:14,207 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2022-12-24 05:23:14,265 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2022-12-24 05:23:14,316 (WARNING - django.request - Bad Request: /invoicing/products/)
+2022-12-24 05:23:14,410 (WARNING - django.request - Unauthorized: /invoicing/products/)

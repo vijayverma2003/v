@@ -1,9 +1,8 @@
-from rest_framework.test import APIClient
-from rest_framework import status
 from django.contrib.auth import get_user_model
-import pytest
-from model_bakery import baker
 from invoicing.models import Product
+from model_bakery import baker
+from rest_framework import status
+import pytest
 
 
 @pytest.fixture
@@ -11,13 +10,6 @@ def create_product(api_client):
     def do_create_product(product):
         return api_client.post('/invoicing/products/', product)
     return do_create_product
-
-
-@pytest.fixture
-def create_user(api_client):
-    def do_create_user(user):
-        return api_client.post('/auth/users/', user)
-    return do_create_user
 
 
 @pytest.mark.django_db
@@ -31,17 +23,17 @@ class TestCreateProduct:
         assert response.status_code == status.HTTP_401_UNAUTHORIZED
 
     def test_if_user_is_valid_returns_201(self, authenticate, create_product):
-        authenticate(id=1)
         user = get_user_model().objects.create()
+        authenticate(id=user.id)
 
         response = create_product(
-            {'user_id': user.id, **self.sample_product})
+            {**self.sample_product, 'user_id': user.id})
 
         assert response.status_code == status.HTTP_201_CREATED
 
     def test_if_user_is_valid_but_data_is_invalid_returns_400(self, authenticate, create_product):
-        authenticate(id=1)
         user = get_user_model().objects.create()
+        authenticate(id=user.id)
 
         response = create_product(
             {'user_id': user.id, **self.sample_product, 'name': ''})
@@ -68,3 +60,38 @@ class TestRetrieveProduct:
             'tax': product.tax,
             'stock': [],
         }
+
+
+@pytest.mark.django_db
+class TestRetrieveProducts:
+    def test_if_products_list_endpoint_returns_200(self, api_client):
+        user = get_user_model().objects.create()
+
+        baker.make(Product, user_id=user.id, _quantity=10)
+
+        response = api_client.get(f'/invoicing/products/')
+
+        assert response.status_code == status.HTTP_200_OK
+        assert len(response.data) == 10
+
+
+@pytest.mark.django_db
+class TestUpdateProduct:
+    def test_if_user_is_anonymous_returns_401(self, create_product):
+        response = create_product({'name': 'a', 'price': 10,
+                                   'tax': 10, 'unit': 'PCS', 'user_id': 1})
+
+        assert response.status_code == status.HTTP_401_UNAUTHORIZED
+
+    def test_if_user_is_not_valid_returns_404(self, authenticate, api_client):
+        user = get_user_model().objects.create()
+
+        authenticate(id=user.id)
+
+        product = baker.make(Product, user_id=user.id)
+
+        response = api_client.put(
+            f'/invoicing/products/{product.id}/', {**product.__dict__, 'name': 'a'})
+
+        assert response.status_code == status.HTTP_200_OK
+        assert response.data['name'] == 'a'
