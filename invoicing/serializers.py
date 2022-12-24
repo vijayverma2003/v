@@ -73,7 +73,7 @@ class CustomerSerializer(serializers.ModelSerializer):
 
 class TransportSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ['id', 'name', 'transporter_id', 'mode']
+        fields = ['id', 'name', 'transporter_id', 'mode', 'user_id']
         model = Transport
 
     def create(self, validated_data):

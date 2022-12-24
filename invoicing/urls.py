@@ -6,7 +6,7 @@ router = routers.DefaultRouter()
 
 router.register('products', views.ProductViewSet, basename='product')
 router.register('invoices', views.InvoiceViewSet, basename='invoice')
-router.register('transport', views.TransportViewSet, basename='transport')
+router.register('transports', views.TransportViewSet, basename='transport')
 router.register('customers', views.CustomerViewSet, basename='customer')
 router.register('firms', views.FirmViewSet, basename='firm')
 
