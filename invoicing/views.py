@@ -175,7 +175,7 @@ class FirmViewSet(ModelViewSet):
         return [IsAuthenticated()]
 
     def create(self, request, *args, **kwargs):
-        if Firm.objects.get(user_id=self.request.user.id):
+        if Firm.objects.filter(user_id=self.request.user.id).exists():
             return Response({'error': 'Firm for the requested user already exists.'},
                             status=status.HTTP_405_METHOD_NOT_ALLOWED)
         return super().create(request, *args, **kwargs)

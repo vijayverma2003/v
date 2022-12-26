@@ -23,11 +23,11 @@ class FirmLogoSerializer(serializers.ModelSerializer):
 
 class FirmSerializer(serializers.ModelSerializer):
     address = AddressSerializer(read_only=True)
-    user = serializers.IntegerField(read_only=True, source='user_id')
+    user_id = serializers.IntegerField(read_only=True)
     logo = FirmLogoSerializer(read_only=True)
 
     class Meta:
-        fields = ['id', 'user', 'name', 'gstin', 'address', 'logo']
+        fields = ['id', 'user_id', 'name', 'gstin', 'address', 'logo']
         model = Firm
 
     def create(self, validated_data):

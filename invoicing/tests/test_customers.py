@@ -27,7 +27,7 @@ class TestCreateCustomer:
         authenticate(id=user.id)
 
         response = create_customer(
-            {'user_id': user.id, **self.sample_customer})
+            {**self.sample_customer})
 
         assert response.status_code == status.HTTP_201_CREATED
 
@@ -36,7 +36,7 @@ class TestCreateCustomer:
         authenticate(id=user.id)
 
         response = create_customer(
-            {**self.sample_customer, 'user_id': user.id, 'name': ''})
+            {**self.sample_customer, 'name': ''})
 
         assert response.status_code == status.HTTP_400_BAD_REQUEST
 
@@ -68,9 +68,7 @@ class TestRetrieveCustomer:
 @pytest.mark.django_db
 class TestRetrieveCustomers:
     def test_if_customers_list_endpoint_returns_200(self, api_client):
-        user = get_user_model().objects.create()
-
-        baker.make(Customer, user_id=user.id, _quantity=10)
+        baker.make(Customer, _quantity=10)
 
         response = api_client.get(f'/invoicing/customers/')
 
@@ -80,13 +78,7 @@ class TestRetrieveCustomers:
 
 @pytest.mark.django_db
 class TestUpdateCustomer:
-    def test_if_user_is_anonymous_returns_401(self, create_customer):
-        response = create_customer({'name': 'a', 'phone': 'a',
-                                    'email': 'a@domain.com', 'city': 'a', 'state': 'a', 'country': 'a', 'user_id': 1})
-
-        assert response.status_code == status.HTTP_401_UNAUTHORIZED
-
-    def test_if_user_is_not_valid_returns_404(self, authenticate, api_client):
+    def test_if_user_is_valid_returns_404(self, authenticate, api_client):
         user = get_user_model().objects.create()
 
         authenticate(id=user.id)
