@@ -70,7 +70,7 @@ class TestRetrieveFirmList:
 
 @pytest.mark.django_db
 class TestUpdateFirm:
-    def test_if_user_is_valid_returns_404(self, authenticate, api_client):
+    def test_if_user_is_valid_returns_200(self, authenticate, api_client):
         firm = baker.make(Firm)
 
         authenticate(id=firm.user_id)

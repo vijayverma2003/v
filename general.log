@@ -2221,3 +2221,795 @@ TypeError: Field 'id' expected a number but got <django.db.models.query_utils.De
 2022-12-26 09:04:28,740 (WARNING - django.request - Unauthorized: /invoicing/transports/)
 2022-12-26 09:04:28,789 (WARNING - django.request - Bad Request: /invoicing/transports/)
 2022-12-26 09:04:28,874 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:07:16,607 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:07:16,667 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:07:16,801 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:07:16,866 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:07:16,990 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:07:17,042 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:07:17,136 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:07:17,200 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:07:17,247 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:07:17,328 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:07:39,986 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:07:40,037 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:07:40,162 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:07:40,225 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:07:40,347 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:07:40,400 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:07:40,491 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:07:40,554 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:07:40,604 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:07:40,688 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:07:53,380 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:07:53,432 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:07:53,697 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:07:53,760 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:07:53,886 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:07:53,940 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:07:54,034 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:07:54,099 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:07:54,147 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:07:54,233 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:09:09,069 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:09:09,120 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:09:09,244 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:09:09,266 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:09:09,330 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:09:09,454 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:09:09,507 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:09:09,600 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:09:09,662 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:09:09,710 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:09:09,792 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:10:23,485 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:10:23,536 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:10:23,660 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:10:23,708 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:10:23,771 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:10:23,895 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:10:23,949 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:10:24,039 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:10:24,103 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:10:24,152 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:10:24,265 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:14:13,799 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:14:13,851 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:14:13,980 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:14:14,031 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:14:14,054 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:14:14,119 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:14:14,243 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:14:14,297 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:14:14,390 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:14:14,453 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:14:14,503 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:14:14,617 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:17:26,469 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:17:26,521 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:17:26,647 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:17:26,699 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:17:26,728 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:17:26,793 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:17:26,919 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:17:26,973 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:17:27,067 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:17:27,129 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:17:27,178 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:17:27,294 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:17:43,655 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:17:43,706 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:17:43,832 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:17:43,883 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:17:44,031 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:17:44,097 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:17:44,221 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:17:44,274 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:17:44,368 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:17:44,431 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:17:44,480 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:17:44,592 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:18:13,858 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:18:13,910 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:18:14,037 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:18:14,090 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:18:14,117 (WARNING - django.request - Bad Request: /invoicing/firms/18/address/)
+2023-01-02 07:18:14,260 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:18:14,321 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:18:14,445 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:18:14,498 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:18:14,591 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:18:14,655 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:18:14,734 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:18:14,815 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:18:40,356 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:18:40,408 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:18:40,534 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:18:40,584 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:18:40,618 (ERROR - django.request - Internal Server Error: /invoicing/firms/18/address/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_address`, CONSTRAINT `invoicing_address_firm_id_cd9e5965_fk_invoicing_firm_id` FOREIGN KEY (`firm_id`) REFERENCES `invoicing_firm` (`id`))')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/vijay/v/invoicing/serializers.py", line 12, in create
+    return Address.objects.create(firm_id=self.context.get('firm_id'), **validated_data)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 812, in save
+    self.save_base(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 863, in save_base
+    updated = self._save_table(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1006, in _save_table
+    results = self._do_insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1047, in _do_insert
+    return manager._insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`test_vbusiness`.`invoicing_address`, CONSTRAINT `invoicing_address_firm_id_cd9e5965_fk_invoicing_firm_id` FOREIGN KEY (`firm_id`) REFERENCES `invoicing_firm` (`id`))')
+2023-01-02 07:18:41,031 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:18:41,093 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:18:41,216 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:18:41,269 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:18:41,360 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:18:41,452 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:18:41,501 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:18:41,584 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:19:25,946 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:19:25,996 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:19:26,123 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:19:26,173 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:19:26,203 (ERROR - django.request - Internal Server Error: /invoicing/firms/4/address/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.IntegrityError: (1062, "Duplicate entry '4' for key 'invoicing_address.PRIMARY'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/vijay/v/invoicing/serializers.py", line 12, in create
+    return Address.objects.create(firm_id=self.context.get('firm_id'), **validated_data)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 812, in save
+    self.save_base(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 863, in save_base
+    updated = self._save_table(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1006, in _save_table
+    results = self._do_insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1047, in _do_insert
+    return manager._insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.IntegrityError: (1062, "Duplicate entry '4' for key 'invoicing_address.PRIMARY'")
+2023-01-02 07:19:26,615 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:19:26,679 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:19:26,804 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:19:26,857 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:19:26,946 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:19:27,040 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:19:27,089 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:19:27,172 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:21:36,300 (INFO - django.utils.autoreload - Watching for file changes with StatReloader)
+2023-01-02 07:21:40,503 (WARNING - django.request - Not Found: /favicon.ico)
+2023-01-02 07:22:07,698 (WARNING - django.request - Method Not Allowed: /auth/jwt/create)
+2023-01-02 07:22:49,464 (ERROR - django.request - Internal Server Error: /invoicing/firms/1/address/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.IntegrityError: (1062, "Duplicate entry '1' for key 'invoicing_address.PRIMARY'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/vijay/v/invoicing/serializers.py", line 12, in create
+    return Address.objects.create(firm_id=self.context.get('firm_id'), **validated_data)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 812, in save
+    self.save_base(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 863, in save_base
+    updated = self._save_table(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1006, in _save_table
+    results = self._do_insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/base.py", line 1047, in _do_insert
+    return manager._insert(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/debug_toolbar/panels/sql/tracking.py", line 230, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/debug_toolbar/panels/sql/tracking.py", line 154, in _record
+    return method(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.IntegrityError: (1062, "Duplicate entry '1' for key 'invoicing_address.PRIMARY'")
+2023-01-02 07:23:54,608 (INFO - django.utils.autoreload - /Users/vijay/v/invoicing/serializers.py changed, reloading.)
+2023-01-02 07:23:55,188 (INFO - django.utils.autoreload - Watching for file changes with StatReloader)
+2023-01-02 07:27:18,331 (INFO - django.utils.autoreload - /Users/vijay/v/invoicing/serializers.py changed, reloading.)
+2023-01-02 07:27:18,959 (INFO - django.utils.autoreload - Watching for file changes with StatReloader)
+2023-01-02 07:28:24,076 (INFO - django.utils.autoreload - /Users/vijay/v/invoicing/views.py changed, reloading.)
+2023-01-02 07:28:24,627 (INFO - django.utils.autoreload - Watching for file changes with StatReloader)
+2023-01-02 07:28:47,943 (INFO - django.utils.autoreload - /Users/vijay/v/invoicing/views.py changed, reloading.)
+2023-01-02 07:28:48,488 (INFO - django.utils.autoreload - Watching for file changes with StatReloader)
+2023-01-02 07:29:10,815 (INFO - django.utils.autoreload - /Users/vijay/v/invoicing/views.py changed, reloading.)
+2023-01-02 07:29:11,322 (INFO - django.utils.autoreload - Watching for file changes with StatReloader)
+2023-01-02 07:29:26,814 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:29:26,872 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:29:27,004 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:29:27,035 (ERROR - django.request - Internal Server Error: /invoicing/firms/2/address/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/v/invoicing/views.py", line 199, in create
+    if Firm.objects.filter(pk=self.context.get('firm_id')).exists():
+AttributeError: 'AddressViewSet' object has no attribute 'context'
+2023-01-02 07:29:27,252 (ERROR - django.request - Internal Server Error: /invoicing/firms/3/address/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/v/invoicing/views.py", line 199, in create
+    if Firm.objects.filter(pk=self.context.get('firm_id')).exists():
+AttributeError: 'AddressViewSet' object has no attribute 'context'
+2023-01-02 07:29:27,345 (ERROR - django.request - Internal Server Error: /invoicing/firms/4/address/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/v/invoicing/views.py", line 199, in create
+    if Firm.objects.filter(pk=self.context.get('firm_id')).exists():
+AttributeError: 'AddressViewSet' object has no attribute 'context'
+2023-01-02 07:29:27,466 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:29:27,531 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:29:27,653 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:29:27,705 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:29:27,796 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:29:27,861 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:29:27,908 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:29:27,991 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:29:41,668 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:29:41,720 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:29:41,848 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:29:41,876 (ERROR - django.request - Internal Server Error: /invoicing/firms/2/address/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/v/invoicing/views.py", line 199, in create
+    if Firm.objects.filter(pk=self.context.get('firm_id')).exists():
+AttributeError: 'AddressViewSet' object has no attribute 'context'
+2023-01-02 07:29:42,095 (ERROR - django.request - Internal Server Error: /invoicing/firms/3/address/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/v/invoicing/views.py", line 199, in create
+    if Firm.objects.filter(pk=self.context.get('firm_id')).exists():
+AttributeError: 'AddressViewSet' object has no attribute 'context'
+2023-01-02 07:29:42,193 (ERROR - django.request - Internal Server Error: /invoicing/firms/4/address/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/v/invoicing/views.py", line 199, in create
+    if Firm.objects.filter(pk=self.context.get('firm_id')).exists():
+AttributeError: 'AddressViewSet' object has no attribute 'context'
+2023-01-02 07:29:42,311 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:29:42,376 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:29:42,499 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:29:42,552 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:29:42,645 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:29:42,708 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:29:42,757 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:29:42,844 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:30:12,030 (INFO - django.utils.autoreload - /Users/vijay/v/invoicing/views.py changed, reloading.)
+2023-01-02 07:30:12,571 (INFO - django.utils.autoreload - Watching for file changes with StatReloader)
+2023-01-02 07:30:14,931 (INFO - django.utils.autoreload - /Users/vijay/v/invoicing/views.py changed, reloading.)
+2023-01-02 07:30:15,453 (INFO - django.utils.autoreload - Watching for file changes with StatReloader)
+2023-01-02 07:30:18,509 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:30:18,560 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:30:18,692 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:30:18,720 (ERROR - django.request - Internal Server Error: /invoicing/firms/2/address/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/v/invoicing/views.py", line 199, in create
+    if Firm.objects.filter(pk=kwargs['firm_id']).exists():
+KeyError: 'firm_id'
+2023-01-02 07:30:18,935 (ERROR - django.request - Internal Server Error: /invoicing/firms/3/address/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/v/invoicing/views.py", line 199, in create
+    if Firm.objects.filter(pk=kwargs['firm_id']).exists():
+KeyError: 'firm_id'
+2023-01-02 07:30:19,023 (ERROR - django.request - Internal Server Error: /invoicing/firms/4/address/)
+Traceback (most recent call last):
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/vijay/.local/share/virtualenvs/v-Z7kjsnkl/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/vijay/v/invoicing/views.py", line 199, in create
+    if Firm.objects.filter(pk=kwargs['firm_id']).exists():
+KeyError: 'firm_id'
+2023-01-02 07:30:19,140 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:30:19,205 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:30:19,331 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:30:19,382 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:30:19,485 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:30:19,548 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:30:19,596 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:30:19,678 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:30:35,632 (INFO - django.utils.autoreload - /Users/vijay/v/invoicing/views.py changed, reloading.)
+2023-01-02 07:30:36,167 (INFO - django.utils.autoreload - Watching for file changes with StatReloader)
+2023-01-02 07:30:38,833 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:30:38,884 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:30:39,011 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:30:39,041 (WARNING - django.request - Method Not Allowed: /invoicing/firms/2/address/)
+2023-01-02 07:30:39,190 (WARNING - django.request - Method Not Allowed: /invoicing/firms/3/address/)
+2023-01-02 07:30:39,222 (WARNING - django.request - Method Not Allowed: /invoicing/firms/4/address/)
+2023-01-02 07:30:39,246 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:30:39,311 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:30:39,438 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:30:39,491 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:30:39,584 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:30:39,648 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:30:39,696 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:30:39,811 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:31:14,110 (INFO - django.utils.autoreload - /Users/vijay/v/invoicing/views.py changed, reloading.)
+2023-01-02 07:31:14,635 (INFO - django.utils.autoreload - Watching for file changes with StatReloader)
+2023-01-02 07:31:30,466 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:31:30,517 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:31:30,643 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:31:30,698 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:31:30,726 (WARNING - django.request - Method Not Allowed: /invoicing/firms/4/address/)
+2023-01-02 07:31:30,751 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:31:30,815 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:31:30,940 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:31:30,993 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:31:31,084 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:31:31,148 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:31:31,197 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:31:31,312 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:31:40,112 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:31:40,167 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:31:40,287 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:31:40,344 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:31:40,373 (WARNING - django.request - Method Not Allowed: /invoicing/firms/4/address/)
+2023-01-02 07:31:40,396 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:31:40,460 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:31:40,582 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:31:40,634 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:31:40,725 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:31:40,789 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:31:40,867 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:31:40,948 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:32:43,660 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:32:43,718 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:32:43,848 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:32:43,906 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:32:43,935 (WARNING - django.request - Method Not Allowed: /invoicing/firms/4/address/)
+2023-01-02 07:32:43,958 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:32:44,021 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:32:44,145 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:32:44,197 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:32:44,289 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:32:44,351 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:32:44,398 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:32:44,511 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:33:40,461 (WARNING - django.request - Method Not Allowed: /invoicing/firms/1/address/)
+2023-01-02 07:36:54,841 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:36:54,893 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:36:55,028 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:36:55,087 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:36:55,117 (WARNING - django.request - Method Not Allowed: /invoicing/firms/4/address/)
+2023-01-02 07:36:55,284 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:36:55,349 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:36:55,474 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:36:55,527 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:36:55,620 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:36:55,682 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:36:55,760 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:36:55,845 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:37:05,345 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:37:05,397 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:37:05,544 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:37:05,604 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:37:05,633 (WARNING - django.request - Method Not Allowed: /invoicing/firms/4/address/)
+2023-01-02 07:37:05,686 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:37:05,751 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:37:05,874 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:37:05,926 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:37:06,018 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:37:06,082 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:37:06,161 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:37:06,244 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:37:26,396 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:37:26,448 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:37:26,573 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:37:26,631 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:37:26,660 (WARNING - django.request - Method Not Allowed: /invoicing/firms/4/address/)
+2023-01-02 07:37:26,836 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:37:26,899 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:37:27,024 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:37:27,076 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:37:27,168 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:37:27,230 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:37:27,309 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:37:27,399 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:37:39,154 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:37:39,207 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:37:39,334 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:37:39,391 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:37:39,420 (WARNING - django.request - Method Not Allowed: /invoicing/firms/4/address/)
+2023-01-02 07:37:39,594 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:37:39,657 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:37:39,792 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:37:39,845 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:37:39,939 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:37:40,001 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:37:40,080 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:37:40,163 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:38:21,964 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:38:22,023 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:38:22,153 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:38:22,212 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:38:22,240 (WARNING - django.request - Method Not Allowed: /invoicing/firms/4/address/)
+2023-01-02 07:38:22,293 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:38:22,356 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:38:22,478 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:38:22,530 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:38:22,620 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:38:22,682 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:38:22,765 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:38:22,851 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:39:55,037 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:39:55,090 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:39:55,222 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:39:55,282 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:39:55,311 (WARNING - django.request - Method Not Allowed: /invoicing/firms/4/address/)
+2023-01-02 07:39:55,487 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:39:55,552 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:39:55,675 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:39:55,726 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:39:55,817 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:39:55,879 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:39:55,957 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:39:56,038 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:40:22,155 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:40:22,208 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:40:22,340 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:40:22,400 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:40:22,429 (WARNING - django.request - Method Not Allowed: /invoicing/firms/4/address/)
+2023-01-02 07:40:22,484 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:40:22,548 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:40:22,671 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:40:22,725 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:40:22,817 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:40:22,881 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:40:22,961 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:40:23,046 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:42:23,710 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:42:23,762 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:42:23,894 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:42:23,955 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:42:23,984 (WARNING - django.request - Method Not Allowed: /invoicing/firms/4/address/)
+2023-01-02 07:42:24,070 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:42:24,135 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:42:24,259 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:42:24,311 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:42:24,404 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:42:24,469 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:42:24,548 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:42:24,630 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:42:53,723 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:42:53,773 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:42:53,900 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:42:53,960 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:42:53,989 (WARNING - django.request - Method Not Allowed: /invoicing/firms/4/address/)
+2023-01-02 07:42:54,077 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:42:54,142 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:42:54,268 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:42:54,322 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:42:54,413 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:42:54,477 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:42:54,557 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:42:54,640 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:43:03,618 (WARNING - django.request - Unauthorized: /invoicing/customers/)
+2023-01-02 07:43:03,669 (WARNING - django.request - Bad Request: /invoicing/customers/)
+2023-01-02 07:43:03,796 (WARNING - django.request - Unauthorized: /invoicing/firms/1/address/)
+2023-01-02 07:43:03,857 (WARNING - django.request - Bad Request: /invoicing/firms/3/address/)
+2023-01-02 07:43:03,886 (WARNING - django.request - Method Not Allowed: /invoicing/firms/4/address/)
+2023-01-02 07:43:03,973 (WARNING - django.request - Unauthorized: /invoicing/firms/)
+2023-01-02 07:43:04,037 (WARNING - django.request - Bad Request: /invoicing/firms/)
+2023-01-02 07:43:04,161 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:43:04,216 (WARNING - django.request - Bad Request: /invoicing/products/)
+2023-01-02 07:43:04,308 (WARNING - django.request - Unauthorized: /invoicing/products/)
+2023-01-02 07:43:04,370 (WARNING - django.request - Unauthorized: /invoicing/transports/)
+2023-01-02 07:43:04,450 (WARNING - django.request - Bad Request: /invoicing/transports/)
+2023-01-02 07:43:04,534 (WARNING - django.request - Unauthorized: /invoicing/transports/)

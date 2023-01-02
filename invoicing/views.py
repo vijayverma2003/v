@@ -195,6 +195,11 @@ class AddressViewSet(ModelViewSet):
             return [AllowAny()]
         return [IsAuthenticated()]
 
+    def create(self, request, *args, **kwargs):
+        if Address.objects.filter(pk=kwargs['firm_pk']).exists():
+            return Response({'error': 'Address already exists for the firm.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+        return super().create(request, *args, **kwargs)
+
 
 class FirmLogoViewSet(ModelViewSet):
     serializer_class = FirmLogoSerializer
