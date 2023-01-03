@@ -83,7 +83,7 @@ class TestUpdateProduct:
 
         assert response.status_code == status.HTTP_401_UNAUTHORIZED
 
-    def test_if_user_is_not_valid_returns_404(self, authenticate, api_client):
+    def test_if_data_is_valid_returns_200(self, authenticate, api_client):
         user = get_user_model().objects.create()
 
         authenticate(id=user.id)
