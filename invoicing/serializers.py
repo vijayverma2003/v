@@ -1,6 +1,6 @@
-from rest_framework import serializers
 from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Address, Firm, FirmLogo
 from .utils import calculate_total_cost, calculate_total_tax
+from rest_framework import serializers
 
 
 class AddressSerializer(serializers.ModelSerializer):

@@ -1,8 +1,8 @@
-import pytest
-from model_bakery import baker
-from invoicing.models import Invoice, Customer, Firm
 from django.contrib.auth import get_user_model
+from invoicing.models import Invoice, Customer, Firm
+from model_bakery import baker
 from rest_framework import status
+import pytest
 
 
 @pytest.fixture

@@ -1,7 +1,7 @@
-import pytest
 from invoicing.models import Product, Stock
 from model_bakery import baker
 from rest_framework import status
+import pytest
 
 
 @pytest.fixture
