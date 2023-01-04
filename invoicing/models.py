@@ -10,6 +10,9 @@ class Firm(models.Model):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class FirmLogo(models.Model):
     firm = models.OneToOneField(Firm,

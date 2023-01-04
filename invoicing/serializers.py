@@ -100,7 +100,7 @@ class InvoiceItemSerializer(serializers.ModelSerializer):
 
 
 class AddInvoiceItemSerializer(serializers.ModelSerializer):
-    product_id = serializers.IntegerField()
+    # product_id = serializers.IntegerField()
 
     def validate_product_id(self, value):
         if not Product.objects.filter(pk=value).exists():
@@ -110,7 +110,7 @@ class AddInvoiceItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = InvoiceItem
-        fields = ['id', 'product_id', 'price',
+        fields = ['id', 'product', 'price',
                   'discount', 'packing_charges', 'quantity']
 
     def create(self, validated_data):
@@ -155,8 +155,11 @@ class InvoiceSerializer(serializers.ModelSerializer):
 class CreateInvoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Invoice
-        fields = ['id', 'number', 'date', 'due_date',
+        fields = ['id', 'firm', 'number', 'date', 'due_date',
                   'customer', 'transport']
+
+    def create(self, validated_data):
+        return Invoice.objects.create(user_id=self.context['user_id'], **validated_data)
 
 
 class PaymentSerializer(serializers.ModelSerializer):

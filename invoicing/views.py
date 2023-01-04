@@ -105,6 +105,9 @@ class InvoiceViewSet(ModelViewSet):
             return [AllowAny()]
         return [IsAuthenticated()]
 
+    def get_serializer_context(self):
+        return {'user_id': self.request.user.id}
+
 
 class TransportViewSet(ModelViewSet):
     queryset = Transport.objects.all()
