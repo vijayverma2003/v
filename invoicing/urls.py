@@ -1,5 +1,6 @@
 from . import views
 from rest_framework_nested import routers
+from django.urls import path
 
 router = routers.DefaultRouter()
 
@@ -8,6 +9,7 @@ router.register('invoices', views.InvoiceViewSet, basename='invoice')
 router.register('transports', views.TransportViewSet, basename='transport')
 router.register('customers', views.CustomerViewSet, basename='customer')
 router.register('firms', views.FirmViewSet, basename='firm')
+
 
 products_router = routers.NestedDefaultRouter(
     router, 'products', lookup='product')
@@ -24,7 +26,6 @@ invoices_router.register(
 invoices_router.register(
     'payments', views.PaymentViewSet, basename='invoice-payment')
 
-
 firms_router = routers.NestedDefaultRouter(
     router, 'firms', lookup='firm')
 
@@ -35,4 +36,5 @@ firms_router.register('logo', views.FirmLogoViewSet, basename='firm-logo')
 
 
 urlpatterns = router.urls + products_router.urls + \
-    invoices_router.urls + firms_router.urls
+    invoices_router.urls + firms_router.urls +\
+    [path('pdf/', views.render_to_pdf)]

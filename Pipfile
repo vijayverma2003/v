@@ -19,6 +19,7 @@ celery = "*"
 django-redis = "*"
 whitenoise = "*"
 gunicorn = "*"
+xhtml2pdf = "*"
 
 [dev-packages]
 autopep8 = "*"

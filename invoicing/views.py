@@ -3,7 +3,6 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
-
 from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Firm, Address, FirmLogo
 from .serializers import AddInvoiceItemSerializer,\
     AddressSerializer,\
@@ -18,6 +17,27 @@ from .serializers import AddInvoiceItemSerializer,\
     StockSerializer,\
     TransportSerializer\
 
+from django.template.loader import get_template
+from io import BytesIO
+from xhtml2pdf import pisa
+from django.http import HttpResponse
+
+
+def render_to_pdf(request):
+    template_path = 'invoice_1.html'
+    context = {'name': 'Vijay'}
+
+    template = get_template(template_path)
+    html = template.render(context)
+
+    result = BytesIO()
+
+    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+
+    if not pdf.error:
+        return HttpResponse({'error': "PDF can't be created."}, status=500)
+
+    return HttpResponse(result.getvalue(), content_type='application/pdf')
 
 
 class ProductViewSet(ModelViewSet):
