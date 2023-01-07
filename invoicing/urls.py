@@ -26,6 +26,7 @@ invoices_router.register(
 invoices_router.register(
     'payments', views.PaymentViewSet, basename='invoice-payment')
 
+
 firms_router = routers.NestedDefaultRouter(
     router, 'firms', lookup='firm')
 
@@ -37,4 +38,4 @@ firms_router.register('logo', views.FirmLogoViewSet, basename='firm-logo')
 
 urlpatterns = router.urls + products_router.urls + \
     invoices_router.urls + firms_router.urls +\
-    [path('pdf/', views.render_to_pdf)]
+    [path('pdf/<int:id>', views.render_to_pdf)]

@@ -1,9 +1,15 @@
+from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Firm, Address, FirmLogo
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
+from django.template.loader import get_template
+from io import BytesIO
 from rest_framework import status
+from rest_framework.decorators import api_view
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
-from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Firm, Address, FirmLogo
+from xhtml2pdf import pisa
 from .serializers import AddInvoiceItemSerializer,\
     AddressSerializer,\
     CreateInvoiceSerializer,\
@@ -17,27 +23,6 @@ from .serializers import AddInvoiceItemSerializer,\
     StockSerializer,\
     TransportSerializer\
 
-from django.template.loader import get_template
-from io import BytesIO
-from xhtml2pdf import pisa
-from django.http import HttpResponse
-
-
-def render_to_pdf(request):
-    template_path = 'invoice_1.html'
-    context = {'name': 'Vijay'}
-
-    template = get_template(template_path)
-    html = template.render(context)
-
-    result = BytesIO()
-
-    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
-
-    if not pdf.error:
-        return HttpResponse({'error': "PDF can't be created."}, status=500)
-
-    return HttpResponse(result.getvalue(), content_type='application/pdf')
 
 
 class ProductViewSet(ModelViewSet):
@@ -232,3 +217,34 @@ class FirmLogoViewSet(ModelViewSet):
 
     def get_serializer_context(self):
         return {'firm_id': self.kwargs['firm_pk']}
+
+
+def render_to_pdf(request, id):
+    if request.method == 'GET':
+        # get_object_or_404 returns the object or exception if object was not found.
+        invoice = get_object_or_404(Invoice, id=id)
+
+        # get_template looks for the template_path in the templates folder in current module.
+        template_path = 'invoice_1.html'
+        template = get_template(template_path)
+
+        # render method of template takes a dictionary that can change data in HTML.
+        html = template.render(invoice.__dict__)
+
+        result = BytesIO()
+
+        # the pisaDocument method of pisa from xhtml2pdf takes a html file in decoded form of bytes.
+        # Encode the html document first, and then pass it in the BytesIO
+        pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+
+        # Error while creating pdf returns 501 - Internal Server Error
+        if not pdf.error:
+            return HttpResponse({'error': "PDF can't be created."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        #  else returns the result that is returned by getvalue method of variable result
+        #  with the content_type of 'application/pdf'
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
+
+        # If the method is not 'GET' then error 405 - Method not allowed is thrown
+    else:
+        return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
