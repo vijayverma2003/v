@@ -221,15 +221,22 @@ class FirmLogoViewSet(ModelViewSet):
 
 def render_to_pdf(request, id):
     if request.method == 'GET':
-        # get_object_or_404 returns the object or exception if object was not found.
-        invoice = get_object_or_404(Invoice, id=id)
+        invoice = {}
+
+        try:
+            invoice_data = Invoice.objects.prefetch_related(
+                'customer', 'firm', 'user').get(id=id)
+            invoice = InvoiceSerializer(invoice_data).data
+
+        except Invoice.DoesNotExist:
+            return HttpResponse(status=status.HTTP_404_NOT_FOUND)
 
         # get_template looks for the template_path in the templates folder in current module.
         template_path = 'invoice_1.html'
         template = get_template(template_path)
 
         # render method of template takes a dictionary that can change data in HTML.
-        html = template.render(invoice.__dict__)
+        html = template.render(invoice)
 
         result = BytesIO()
 
@@ -243,7 +250,12 @@ def render_to_pdf(request, id):
 
         #  else returns the result that is returned by getvalue method of variable result
         #  with the content_type of 'application/pdf'
-        return HttpResponse(result.getvalue(), content_type='application/pdf')
+        response = HttpResponse(
+            result.getvalue(), content_type='application/pdf')
+
+        # response['Content-Disposition'] = f'attachment; filename="INV-{invoice["number"]}.pdf"'
+
+        return response
 
         # If the method is not 'GET' then error 405 - Method not allowed is thrown
     else:

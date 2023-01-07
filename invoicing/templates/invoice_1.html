@@ -5,8 +5,101 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .i1--header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 0.7px solid rgba(0, 0, 0, 0.355);
+        padding-bottom: 0.2rem;
+      }
+
+      .i1--heading {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin: 1rem 0 0.5rem;
+      }
+
+      .i1--small {
+        color: black;
+        font-size: 0.8rem;
+        line-height: 1.5;
+        margin-top: 0;
+        font-weight: 500;
+        margin-bottom: 0.2rem;
+      }
+
+      .i1--logo {
+        width: 60px;
+        height: 60px;
+      }
+
+      .i1--info {
+        display: flex;
+        align-items: flex-start;
+        padding: 0.8rem 0;
+      }
+
+      .i1--info div {
+        width: 50%;
+      }
+
+      .table--box {
+        margin-bottom: 1rem;
+      }
+
+      .i1--table {
+        margin-top: 1rem;
+        width: 100%;
+        border: 1px solid black;
+        border-collapse: collapse;
+        margin-bottom: 1rem;
+      }
+
+      .i1--table th {
+        font-weight: 700;
+        color: black;
+      }
+
+      .i1--table th,
+      .i1--table td {
+        text-align: center;
+        font-size: 0.8rem;
+        border-right: 1px solid black;
+        padding: 0.2rem;
+        border-color: black;
+      }
+
+      .i1--table td {
+        border-top: 1px solid black;
+        font-weight: 500;
+      }
+
+      .i1--qr {
+        width: 80px;
+      }
+
+      .i1--end {
+        width: 100%;
+        margin-top: 0.4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+
+      .i1--sign {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+    </style>
   </head>
   <body>
-    Hello, ID of invoice is {{id}}
+    <header className="i1--header">
+      <div>
+        <h3 className="i1--heading">{{firm.name}}</h3>
+        <p className="i1--small m0">Invoice Reciept</p>
+      </div>
+    </header>
   </body>
 </html>
