@@ -37,5 +37,5 @@ firms_router.register('logo', views.FirmLogoViewSet, basename='firm-logo')
 
 
 urlpatterns = router.urls + products_router.urls + \
-    invoices_router.urls + firms_router.urls +\
-    [path('pdf/<int:id>', views.render_to_pdf)]
+    invoices_router.urls + firms_router.urls + \
+    [path('pdf/<int:id>/', views.create_invoice_pdf)]

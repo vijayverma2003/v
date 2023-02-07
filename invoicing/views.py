@@ -1,15 +1,12 @@
 from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Firm, Address, FirmLogo
-from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
-from django.template.loader import get_template
-from io import BytesIO
 from rest_framework import status
-from rest_framework.decorators import api_view
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
-from xhtml2pdf import pisa
+from weasyprint import HTML
+from django.template.loader import get_template
 from .serializers import AddInvoiceItemSerializer,\
     AddressSerializer,\
     CreateInvoiceSerializer,\
@@ -23,6 +20,44 @@ from .serializers import AddInvoiceItemSerializer,\
     StockSerializer,\
     TransportSerializer\
 
+import chardet
+from django.http import HttpResponse
+import qrcode
+from io import BytesIO
+import base64
+
+
+def create_invoice_pdf(request, id):
+    invoice = get_object_or_404(Invoice, pk=id)
+    serializer = InvoiceSerializer(invoice)
+
+    qr = qrcode.QRCode(version=1, box_size=10, border=4,
+                       error_correction=qrcode.constants.ERROR_CORRECT_L,)
+
+    qr.add_data('https://google.com')
+    qr.make(fit=True)
+    img = qr.make_image(fill_color="black", back_color="white")
+
+    buffer = BytesIO()
+
+    img.save(buffer, format="PNG")
+
+    buffer_image = base64.b64encode(buffer.getvalue()).decode('utf-8')
+
+    html_template = get_template("invoice_1.html")
+
+    html = html_template.render(
+        {'inv': serializer.data, 'qr': f'data:image/png;base64,{buffer_image}'})
+
+    html_bytes = html.encode()
+
+    result = chardet.detect(html_bytes)
+
+    rendered_html = html_bytes.decode(result['encoding']).encode("utf-8")
+
+    pdf = HTML(string=rendered_html).write_pdf()
+
+    return HttpResponse(pdf, content_type="application/pdf")
 
 
 class ProductViewSet(ModelViewSet):
@@ -96,7 +131,7 @@ class InvoiceViewSet(ModelViewSet):
 
     def get_queryset(self):
         if self.request.user.id:
-            return Invoice.objects.prefetch_related('invoiceitems__product')\
+            return Invoice.objects.prefetch_related('invoiceitems__product') \
                 .filter(user_id=self.request.user.id)
         return Invoice.objects.prefetch_related('invoiceitems__product').all()
 
@@ -217,46 +252,3 @@ class FirmLogoViewSet(ModelViewSet):
 
     def get_serializer_context(self):
         return {'firm_id': self.kwargs['firm_pk']}
-
-
-def render_to_pdf(request, id):
-    if request.method == 'GET':
-        invoice = {}
-
-        try:
-            invoice_data = Invoice.objects.prefetch_related(
-                'customer', 'firm', 'user').get(id=id)
-            invoice = InvoiceSerializer(invoice_data).data
-
-        except Invoice.DoesNotExist:
-            return HttpResponse(status=status.HTTP_404_NOT_FOUND)
-
-        # get_template looks for the template_path in the templates folder in current module.
-        template_path = 'invoice_1.html'
-        template = get_template(template_path)
-
-        # render method of template takes a dictionary that can change data in HTML.
-        html = template.render(invoice)
-
-        result = BytesIO()
-
-        # the pisaDocument method of pisa from xhtml2pdf takes a html file in decoded form of bytes.
-        # Encode the html document first, and then pass it in the BytesIO
-        pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
-
-        # Error while creating pdf returns 501 - Internal Server Error
-        if not pdf.error:
-            return HttpResponse({'error': "PDF can't be created."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-        #  else returns the result that is returned by getvalue method of variable result
-        #  with the content_type of 'application/pdf'
-        response = HttpResponse(
-            result.getvalue(), content_type='application/pdf')
-
-        # response['Content-Disposition'] = f'attachment; filename="INV-{invoice["number"]}.pdf"'
-
-        return response
-
-        # If the method is not 'GET' then error 405 - Method not allowed is thrown
-    else:
-        return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)

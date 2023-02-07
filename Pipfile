@@ -20,6 +20,10 @@ django-redis = "*"
 whitenoise = "*"
 gunicorn = "*"
 xhtml2pdf = "*"
+weasyprint = "*"
+chardet = "*"
+pyqrcode = "*"
+qrcode = "*"
 
 [dev-packages]
 autopep8 = "*"

@@ -1,105 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
     <style>
-      .i1--header {
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+
+      @page {
+        margin: 0.4rem 1.4rem;
+      }
+
+      h3 {
+        font-size: 1.4rem;
+        margin: 1rem 0 0.2rem;
+      }
+
+      p {
+        margin: 0.2rem 0 0.4rem;
+        font-weight: 400;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      /* Firm Header */
+
+      .border-bottom {
+        border-bottom: 1px solid #909090;
+      }
+
+      .invoice-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 0.7px solid rgba(0, 0, 0, 0.355);
-        padding-bottom: 0.2rem;
       }
 
-      .i1--heading {
-        font-size: 1.2rem;
-        font-weight: 700;
-        margin: 1rem 0 0.5rem;
-      }
-
-      .i1--small {
-        color: black;
-        font-size: 0.8rem;
-        line-height: 1.5;
-        margin-top: 0;
-        font-weight: 500;
-        margin-bottom: 0.2rem;
-      }
-
-      .i1--logo {
-        width: 60px;
-        height: 60px;
-      }
-
-      .i1--info {
+      .header-info {
+        width: 100%;
         display: flex;
-        align-items: flex-start;
-        padding: 0.8rem 0;
+        margin-top: 1.4rem;
       }
 
-      .i1--info div {
+      .header-info div {
         width: 50%;
       }
 
-      .table--box {
-        margin-bottom: 1rem;
+      .invoice-header .firm-heading {
+        padding-bottom: 0.4rem;
       }
 
-      .i1--table {
-        margin-top: 1rem;
+      .invoice-logo {
+        width: 50px;
+        height: 50px;
+      }
+
+      table {
         width: 100%;
-        border: 1px solid black;
         border-collapse: collapse;
-        margin-bottom: 1rem;
       }
 
-      .i1--table th {
-        font-weight: 700;
-        color: black;
-      }
-
-      .i1--table th,
-      .i1--table td {
+      th,
+      td {
+        border: 1px solid #505050;
+        padding: 0.4rem 1rem;
         text-align: center;
-        font-size: 0.8rem;
-        border-right: 1px solid black;
-        padding: 0.2rem;
-        border-color: black;
       }
 
-      .i1--table td {
-        border-top: 1px solid black;
-        font-weight: 500;
-      }
-
-      .i1--qr {
-        width: 80px;
-      }
-
-      .i1--end {
-        width: 100%;
-        margin-top: 0.4rem;
+      footer {
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
+        position: fixed;
+        bottom: 0.4rem;
+        width: 100%;
       }
 
-      .i1--sign {
+      .qr-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .qr-text {
         margin: 0;
-        font-size: 0.9rem;
-        font-weight: 500;
+      }
+
+      .qr {
+        width: 50px;
+        height: 50px;
       }
     </style>
   </head>
   <body>
-    <header className="i1--header">
+    <div class="invoice-header border-bottom">
       <div>
-        <h3 className="i1--heading">{{firm.name}}</h3>
-        <p className="i1--small m0">Invoice Reciept</p>
+        <h3 class="firm-heading">{{inv.firm.name}}</h3>
+        <p>Invoice Reciept</p>
       </div>
-    </header>
+      <img
+        class="invoice-logo"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPsAAADJCAMAAADSHrQyAAAAkFBMVEX///8jHyAAAAAXERN0cnMgHB0eGRobFhcIAAD19fUOBQgYExT7+/sFAADBwMDg4ODo6OgMAAQnIyQTDQ+4t7fV1NTLyspBPj/w8PCNjIyTkZJLSEm1tLWura1bWVovKyyioKFmZGU2MjOEgoN7eXqfnZ5HREVfXV2HhYY7ODlraWpST1Db2tvR0NGRkJAxLi6lHwkjAAAGu0lEQVR4nO2c6ULqMBCFISVdQYpVQRQEBeQK6vu/3c3SQtMG6JJAU+f7J2BI22SSOWdCpwMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACcot87wddQ3Zc89tW1pZIFsqSgnrKvCNfKmlLM2O5KQRNV3zDfq2pJNY9Ifu3+VNEX9FaKGtJAL5JeO773lDS/3j0oaUcLkwjLB/1MRetP6EPZ5NHAQj7q8ZuCtsPBStXc0cOJcIfuarfcfw9m9VvRyZP8wTvz2i0v0WypoIM6+bLkD/6xZrvPaHzX7CFPZqUrDXdWzWf2gNDDPFTTRX2sXfmDr9Xx/ch52e9UdVEf79JwF21rNOnd2+hx2eDFPeFOGu6wXWNt3lnBMrQamsYILAPZxbvV05CVS6bM6kNhF7UxHMnCHbaqtjdD3WjlIYWZsEZ+RtJo91qtNbJlwIG3Havtoy7697IHb79UaozmCKNpX01KcAUepOEOPVVoqj92utghK2eT0xiBnSO59kob2y+fpYG2Ou1HN0P5gy8frqakIXtM8sNvDb3UxNaXXHtUWnZhewWSBCpJgq+FJwt3OCq5sR0i0oqz67yihZZeamImG/UlhTuPbY9JCrhxG5/GCMjCHUblmqDyn9UjI7/pmXsGqWg7KLNKb1kLJAHcKJB9rstKItra/4r/P581/jPZ2Dn6eqkHT7atL/4E+bjBeNL5RM86+6kFWbhzim5sQ5vducGC3ISBGWmMgEy0RQVdpQ1LhLFNUmLfAMEmhyzcBV+F/rXnJ1NkiKomgLdF5lH5RZbqNTrMkFWETBBsckzsfLiLCugviexFtjWhW34n3AzWklF/+TEOA37LgjlNDGpL+7fiXz7cjS4Jd/23eEvoDjsecjZX6agGJB6V/X7hwS/jKEEH+9QfLa7SUR1IPKoLcXub3C7k0XQQqfHub0EoefBnZceD3uWSpG82CAxLYwQkHtU54e4x8fPwL5kaEa4k8jWFft6jCj5Pftq7Tz5NhdlXdDE4NBuJR3V6Y7tLPB37vUM3xf7PFXuqgc9cuDu5XVkdJggd6+Su1bNvb8/Qz+3uTlTcHct12LQY246JaYxA3qOSC3epzQCdFeRPZIDvfAGcffDSirvwOD4iakXMHVWFebck71FJ7DXqPiW3hiZ7JAMukvc0nnnWkrd/c59ZHhNen4pUy6Cw0NFo8h5VTribHj+C/T7bELJ1znxyHlU2gqenBXNhVlbXNcV3Pk/eoxLT8v3g+D4TssMI48AY3/k8r9lRb6WFO+8ttfFl04EMlILSngFssh5Vesu2Swl7TMb2UMVahUaSE21TFXcfg/Q9oVb71Gf6dFv4yIi2x4o7wcRgc4GGB2WnLRqAhzLhzl3wN76FN1hxxoIMhIHhaYxA1qPC9+zliZW+dJ9t5WzcdU4n+Sbykgl3PFMJ02keduhEoItCC9KYNNlwZ3P5OX1LeOXp2O5i96ZdVU/Wo+Kr2OKY4uIufYEqPa1IY9JkPSou3KU2+3ygb+zifq05ZM9R8Yq7g1fNPRgqYZgv2OTJiLZcuPtJEh0+B+Zk/rckjRHIeFTYoot4EgMDVnTK/jLYjTlNTxRt+ebtDadmAD16YJlTPluCjEeFbeo9rKzjBGCRrz1pjMB6IFw8q7hjMwH7bH9PB8Z5x85cMh4VEyr6tBxtxCrJQnqc2G/sEf+aZMIdUyq+ArK7Z84by/ZMd2NOI4q27EQB2cBz1ZpqFipOzzaVUPSoqHAXWg6vNmVLvXHlsyUQPSomVrzw62WSJn5r4+KeIIq2LlnWF3wPSzWLbmRe+WwJRI+KujB7vqCzm9K+NEbgMx3u8CgZ40zZsY0tKiuG6FElwh1P6Iw5BVgVwaOKl3Y+FbDT5khHETwqbHG1mmoWLU1jBF6z3mOy4TPpFGBVjgql/cuHPNUs1PwUTtPZHx58rEZ/sxcMLp8twUcc7pI1jVfetjeNSeM5sVrDJzhf9trjO5+He1RJsTAXs9qcxgiwcOfyA2A8ucP4xl26GjS6JeWlW2bZtDuNEehFeMS3NRMe9Q35MRMVTCwUFxhwe6LFgk2eRfxjRR6vOh0YeQqwIv04rC9Y7TiO2p7GSIh/EMfUU4C1iKtRjD0FWAduV7RdsJESy3cH+eYv8cJdKr8l5bNliE0qo08BViXO5FvqO1+AZe44f5LiL8CqTNpUPlsGalW4fyeNESDJbBuLyooxd1pWPluCJ9R6N+Y047aVz5bg4U8u7gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMCV+Q8jcUpuY/NOjwAAAABJRU5ErkJggg=="
+        alt="Invoice Logo"
+      />
+    </div>
+
+    <div class="header-info">
+      <div>
+        <p>
+          {{inv.firm.address.street}}, {{inv.firm.address.city}},
+          {{inv.firm.address.state}}, {{inv.firm.address.country}}
+        </p>
+        {% if firm.gstin %}
+        <p>GSTIN: {{inv.firm.gstin}}</p>
+        {% endif %}
+        <p>Email: {{inv.user.email}}</p>
+      </div>
+      <div>
+        <p><strong>inv Number: {{inv.number}}</strong></p>
+        <p>Date: {{inv.date}}</p>
+        <p>Due Date: {{inv.due_date}}</p>
+      </div>
+    </div>
+
+    <h2>Recipient</h2>
+    <div class="header-info">
+      <div>
+        <p><strong>{{inv.customer.name}}</strong></p>
+        {% if customer.gstin %}
+        <p>GSTIN: {{inv.customer.gstin}}</p>
+        {% endif %}
+        <p>
+          {{inv.customer.street}}, {{inv.customer.city}},
+          {{inv.customer.state}}, {{inv.customer.country}}
+        </p>
+        <p>Phone: {{inv.customer.phone}}</p>
+        <p>Email: {{inv.customer.email}}</p>
+      </div>
+      <div>
+        <p>Transport Name: {{inv.transport.name}}</p>
+        <p>Transporter ID: {{inv.transport.transporter_id}}</p>
+        <p>Mode of transport: {{inv.transport.mode}}</p>
+      </div>
+    </div>
+
+    <h2>Order Details</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>S No.</th>
+          <th>Name of Product</th>
+          <th>Qty</th>
+          <th>Cost</th>
+          <th>Per</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in inv.items %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{item.product.name}}</td>
+          <td>{{item.quantity}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.product.unit}}</td>
+          <td>{{item.total}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Output Tax</td>
+          <td></td>
+          <td>{{inv.total_tax}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{inv.total_cost}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><i>Total in words:</i></p>
+    <p><i>Total Tax in words:</i></p>
+
+    <h2>Bank Details</h2>
+    <table>
+      <tr>
+        <th>Bank Name</th>
+        <th>Acc. Number</th>
+        <th>IFSC Code</th>
+        <th>Branch</th>
+      </tr>
+      <tr>
+        <td>Bank Name</td>
+        <td>Acc. Number</td>
+        <td>IFSC Code</td>
+        <td>Branch</td>
+      </tr>
+    </table>
+
+    <footer>
+      <div class="qr-box">
+        <img class="qr" src="{{qr}}" />
+        <p class="qr-text">Download</p>
+      </div>
+      <div>
+        <h4>Authorized Signatory</h4>
+        <p>For {{inv.firm.name}}</p>
+      </div>
+    </footer>
   </body>
 </html>
