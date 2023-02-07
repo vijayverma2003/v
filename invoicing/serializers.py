@@ -1,4 +1,4 @@
-from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Address, Firm, FirmLogo
+from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Address, Firm, FirmLogo, Bank
 from .utils import calculate_total_cost, calculate_total_tax
 from rest_framework import serializers
 
@@ -50,7 +50,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['id', 'user', 'name', 'price', 'tax', 'unit', 'stock']
+        fields = ['id', 'user', 'name', 'price', 'tax', 'unit', 'hsn', 'stock']
 
     def calculate_tax(self, product: Product):
         return product.price + product.price * (product.tax / 100)
@@ -118,6 +118,11 @@ class AddInvoiceItemSerializer(serializers.ModelSerializer):
         return InvoiceItem.objects.create(invoice_id=invoice_id, **validated_data)
 
 
+class UserSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    email = serializers.EmailField()
+
+
 class InvoiceSerializer(serializers.ModelSerializer):
     items = InvoiceItemSerializer(
         many=True, source='invoiceitems', read_only=True)
@@ -129,6 +134,7 @@ class InvoiceSerializer(serializers.ModelSerializer):
         method_name='calculate_total_tax')
     customer = CustomerSerializer()
     firm = FirmSerializer()
+    user = UserSerializer()
 
     class Meta:
         model = Invoice
@@ -170,3 +176,9 @@ class PaymentSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         invoice_id = self.context['invoice_id']
         return Payment.objects.create(invoice_id=invoice_id, **validated_data)
+
+
+class BankSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = ['id', 'name', 'ifsc', 'acc', 'branch']
+        model = Bank

@@ -30,12 +30,22 @@ class Address(models.Model):
         Firm, on_delete=models.CASCADE, primary_key=True)
 
 
+class Bank(models.Model):
+    name = models.CharField(max_length=255)
+    ifsc = models.CharField(max_length=55)
+    acc = models.CharField(max_length=55)
+    branch = models.CharField(max_length=55)
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+
 class Product(models.Model):
     name = models.CharField(max_length=255)
     price = models.DecimalField(
         max_digits=10, decimal_places=2, validators=[MinValueValidator(1)])
     tax = models.DecimalField(max_digits=4, decimal_places=2)
     unit = models.CharField(max_length=3)
+    hsn = models.CharField(max_length=10, null=True, blank=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
 
