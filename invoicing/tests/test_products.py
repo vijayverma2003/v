@@ -59,6 +59,7 @@ class TestRetrieveProduct:
             'user': user.id,
             'tax': product.tax,
             'stock': [],
+            'hsn': None
         }
 
 
@@ -88,7 +89,7 @@ class TestUpdateProduct:
 
         authenticate(id=user.id)
 
-        product = baker.make(Product, user_id=user.id)
+        product = baker.make(Product, user_id=user.id, hsn="")
 
         response = api_client.put(
             f'/invoicing/products/{product.id}/', {**product.__dict__, 'name': 'a'})

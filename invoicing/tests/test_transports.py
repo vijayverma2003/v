@@ -86,7 +86,7 @@ class TestUpdateTransport:
 
         authenticate(id=user.id)
 
-        transport = baker.make(Transport, user_id=user.id)
+        transport = baker.make(Transport, user_id=user.id, transporter_id="")
 
         response = api_client.put(
             f'/invoicing/transports/{transport.id}/', {**transport.__dict__, 'name': 'a'})

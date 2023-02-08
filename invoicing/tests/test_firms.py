@@ -54,6 +54,7 @@ class TestRetrieveFirm:
             'user_id': user.id,
             'address': None,
             'logo': None,
+            'bank': None
         }
 
 
