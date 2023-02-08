@@ -265,3 +265,8 @@ class BankViewSet(ModelViewSet):
 
     def get_serializer_context(self):
         return {'firm_id': self.kwargs['firm_pk']}
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]
