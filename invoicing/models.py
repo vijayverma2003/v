@@ -35,8 +35,8 @@ class Bank(models.Model):
     ifsc = models.CharField(max_length=55)
     acc = models.CharField(max_length=55)
     branch = models.CharField(max_length=55)
-    user = models.OneToOneField(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    firm = models.OneToOneField(
+        Firm, on_delete=models.CASCADE, primary_key=True)
 
 
 class Product(models.Model):
@@ -82,7 +82,7 @@ class Customer(models.Model):
 class Transport(models.Model):
     name = models.CharField(max_length=255)
     mode = models.CharField(max_length=55)
-    transporter_id = models.CharField(max_length=55)
+    transporter_id = models.CharField(max_length=55, blank=True, null=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
 
@@ -97,7 +97,7 @@ class Invoice(models.Model):
     terms = models.TextField(
         max_length=2000, blank=True, default='')
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
-    transport = models.ForeignKey(
+    transport = models.OneToOneField(
         Transport, on_delete=models.PROTECT, blank=True, null=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)

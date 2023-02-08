@@ -137,7 +137,7 @@ class InvoiceAdmin(admin.ModelAdmin):
                 urlencode({'transport_id': invoice.transport.id})
             )
 
-            return format_html('<a href="{}">{}</a>', url, invoice.transport.transporter_id)
+            return format_html('<a href="{}">{}</a>', url, invoice.transport.name)
         return "Doesn't exist"
 
 

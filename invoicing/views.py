@@ -1,4 +1,4 @@
-from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Firm, Address, FirmLogo
+from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Firm, Address, FirmLogo, Bank
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.filters import SearchFilter, OrderingFilter
@@ -9,6 +9,7 @@ from weasyprint import HTML
 from django.template.loader import get_template
 from .serializers import AddInvoiceItemSerializer,\
     AddressSerializer,\
+    BankSerializer,\
     CreateInvoiceSerializer,\
     CustomerSerializer,\
     FirmLogoSerializer,\
@@ -249,6 +250,18 @@ class FirmLogoViewSet(ModelViewSet):
 
     def get_queryset(self):
         return FirmLogo.objects.filter(firm_id=self.kwargs['firm_pk'])
+
+    def get_serializer_context(self):
+        return {'firm_id': self.kwargs['firm_pk']}
+
+
+class BankViewSet(ModelViewSet):
+    serializer_class = BankSerializer
+
+    def get_queryset(self):
+        if self.request.user.id:
+            return Bank.objects.filter(firm_id=self.kwargs['firm_pk'])
+        return Bank.objects.all()
 
     def get_serializer_context(self):
         return {'firm_id': self.kwargs['firm_pk']}

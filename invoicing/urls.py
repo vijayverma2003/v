@@ -35,6 +35,8 @@ firms_router.register(
 
 firms_router.register('logo', views.FirmLogoViewSet, basename='firm-logo')
 
+firms_router.register('bank', views.BankViewSet, basename='firm-bank')
+
 
 urlpatterns = router.urls + products_router.urls + \
     invoices_router.urls + firms_router.urls + \

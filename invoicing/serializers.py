@@ -3,6 +3,15 @@ from .utils import calculate_total_cost, calculate_total_tax
 from rest_framework import serializers
 
 
+class BankSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = ['name', 'ifsc', 'acc', 'branch']
+        model = Bank
+
+    def create(self, validated_data):
+        return Bank.objects.create(firm_id=self.context['firm_id'], **validated_data)
+
+
 class AddressSerializer(serializers.ModelSerializer):
     class Meta:
         fields = ['street', 'city', 'state', 'country']
@@ -25,9 +34,10 @@ class FirmSerializer(serializers.ModelSerializer):
     address = AddressSerializer(read_only=True)
     user_id = serializers.IntegerField(read_only=True)
     logo = FirmLogoSerializer(read_only=True)
+    bank = BankSerializer(read_only=True)
 
     class Meta:
-        fields = ['id', 'user_id', 'name', 'gstin', 'address', 'logo']
+        fields = ['id', 'user_id', 'name', 'gstin', 'address', 'logo', 'bank']
         model = Firm
 
     def create(self, validated_data):
@@ -176,9 +186,3 @@ class PaymentSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         invoice_id = self.context['invoice_id']
         return Payment.objects.create(invoice_id=invoice_id, **validated_data)
-
-
-class BankSerializer(serializers.ModelSerializer):
-    class Meta:
-        fields = ['id', 'name', 'ifsc', 'acc', 'branch']
-        model = Bank
