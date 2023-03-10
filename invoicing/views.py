@@ -31,6 +31,24 @@ import base64
 def create_invoice_pdf(request, id):
     invoice = get_object_or_404(Invoice, pk=id)
     serializer = InvoiceSerializer(invoice)
+    data = serializer.data
+
+    taxList = []
+
+    for item in data.get('items'):
+        product = item.get('product')
+        tax = product.get('tax')
+
+        exists = False
+
+        for rate in taxList:
+            if rate.get('tax') and rate.get('tax') == tax:
+                rate.total += item.get('total') * (tax / 100)
+                exists = True
+
+        if not exists:
+            taxList.append(
+                {'tax': tax, 'total': item.get('total') * (tax / 100)})
 
     qr = qrcode.QRCode(version=1, box_size=10, border=4,
                        error_correction=qrcode.constants.ERROR_CORRECT_L,)
@@ -48,7 +66,7 @@ def create_invoice_pdf(request, id):
     html_template = get_template("invoice_1.html")
 
     html = html_template.render(
-        {'inv': serializer.data, 'qr': f'data:image/png;base64,{buffer_image}'})
+        {'inv': data, 'qr': f'data:image/png;base64,{buffer_image}', 'taxList': taxList, 'grand_total': data.get('total_cost') + data.get('total_tax')})
 
     html_bytes = html.encode()
 

@@ -3,7 +3,7 @@
   <head>
     <style>
       html {
-        font-size: 62.5%;
+        font-size: 75%;
       }
 
       body {
@@ -24,7 +24,7 @@
       }
 
       p {
-        margin: 0.2rem 0 0.4rem;
+        margin: 0.2rem 0 0.6rem;
         font-weight: 400;
       }
 
@@ -125,7 +125,7 @@
         <p>Email: {{inv.user.email}}</p>
       </div>
       <div>
-        <p><strong>inv Number: {{inv.number}}</strong></p>
+        <p><strong>Invoice Number: {{inv.number}}</strong></p>
         <p>Date: {{inv.date}}</p>
         <p>Due Date: {{inv.due_date}}</p>
       </div>
@@ -172,24 +172,27 @@
           <td>{{item.quantity}}</td>
           <td>{{item.price}}</td>
           <td>{{item.product.unit}}</td>
-          <td>{{item.total}}</td>
+          <td>{{item.total|floatformat:2}}</td>
+        </tr>
+        {% endfor %} {% for item in taxList %}
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <strong><i>Output Tax @ {{item.tax|floatformat:0}}%</i></strong>
+          </td>
+          <td></td>
+          <td>{{item.total|floatformat:2}}</td>
         </tr>
         {% endfor %}
         <tr>
           <td></td>
-          <td></td>
-          <td></td>
-          <td>Output Tax</td>
-          <td></td>
-          <td>{{inv.total_tax}}</td>
-        </tr>
-        <tr>
+          <td><strong>Total</strong></td>
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
-          <td>{{inv.total_cost}}</td>
+          <td>{{grand_total|floatformat:2}}</td>
         </tr>
       </tbody>
     </table>
