@@ -19,3 +19,6 @@ class Country(models.Model):
     name = models.CharField(max_length=55)
     currency = models.ForeignKey(Currency, on_delete=models.PROTECT)
     idd = models.CharField(max_length=15)
+
+    def __str__(self) -> str:
+        return self.name

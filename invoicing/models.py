@@ -2,6 +2,8 @@ from .validators import validate_file_size
 from django.conf import settings
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.fields import GenericForeignKey
 
 
 class Firm(models.Model):
@@ -32,9 +34,9 @@ class Address(models.Model):
 
 class Bank(models.Model):
     name = models.CharField(max_length=255)
-    ifsc = models.CharField(max_length=55)
-    acc = models.CharField(max_length=55)
-    branch = models.CharField(max_length=55)
+    ifsc = models.CharField(max_length=55, null=True, blank=True)
+    acc = models.CharField(max_length=55,)
+    branch = models.CharField(max_length=55, null=True, blank=True)
     firm = models.OneToOneField(
         Firm, on_delete=models.CASCADE, primary_key=True)
 
@@ -71,7 +73,8 @@ class Customer(models.Model):
     street = models.CharField(max_length=255, null=True, blank=True)
     city = models.CharField(max_length=55)
     state = models.CharField(max_length=55)
-    country = models.CharField(max_length=55)
+    country = models.ForeignKey('core.Country', on_delete=models.PROTECT)
+
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
 

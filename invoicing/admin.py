@@ -70,8 +70,8 @@ class FirmAdmin(admin.ModelAdmin):
 @admin.register(models.Customer)
 class CustomerAdmin(admin.ModelAdmin):
     autocomplete_fields = ['user']
-    list_display = ['name', 'phone', 'email', 'country', 'gstin']
-    list_filter = ['country', 'user']
+    list_display = ['name', 'phone', 'email', 'gstin', 'country']
+    list_filter = ['user', 'country']
     list_per_page = 10
     search_fields = ['name__istartswith']
 

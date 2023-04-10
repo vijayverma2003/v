@@ -133,7 +133,7 @@ class UserSerializer(serializers.Serializer):
     email = serializers.EmailField()
 
 
-class  InvoiceSerializer(serializers.ModelSerializer):
+class InvoiceSerializer(serializers.ModelSerializer):
     items = InvoiceItemSerializer(
         many=True, source='invoiceitems', read_only=True)
     transport = TransportSerializer()
