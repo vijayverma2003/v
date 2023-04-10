@@ -1,6 +1,7 @@
 from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Address, Firm, FirmLogo, Bank
 from .utils import calculate_total_cost, calculate_total_tax
 from rest_framework import serializers
+from core.serializers import CountrySerializer
 
 
 class BankSerializer(serializers.ModelSerializer):
@@ -71,6 +72,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
 class CustomerSerializer(serializers.ModelSerializer):
     user = serializers.IntegerField(read_only=True, source='user_id')
+    country = CountrySerializer(read_only=True)
 
     class Meta:
         fields = ['id', 'user', 'name', 'gstin', 'phone', 'email',
