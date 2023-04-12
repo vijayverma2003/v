@@ -11,6 +11,7 @@ from .serializers import AddInvoiceItemSerializer,\
     AddressSerializer,\
     BankSerializer,\
     CreateInvoiceSerializer,\
+    CreateCustomerSerializer,\
     CustomerSerializer,\
     FirmLogoSerializer,\
     FirmSerializer,\
@@ -128,6 +129,11 @@ class CustomerViewSet(ModelViewSet):
         if self.request.user.id:
             return Customer.objects.filter(user_id=self.request.user.id)
         return Customer.objects.all()
+
+    def get_serializer_class(self):
+        if (self.request.method == 'GET'):
+            return CustomerSerializer
+        return CreateCustomerSerializer
 
     def get_permissions(self):
         if self.request.method == 'GET':
