@@ -131,9 +131,9 @@ class CustomerViewSet(ModelViewSet):
         return Customer.objects.all()
 
     def get_serializer_class(self):
-        if (self.request.method == 'GET'):
-            return CustomerSerializer
-        return CreateCustomerSerializer
+        if self.request.method in ['POST', 'PUT']:
+            return CreateCustomerSerializer
+        return CustomerSerializer
 
     def get_permissions(self):
         if self.request.method == 'GET':

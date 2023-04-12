@@ -93,6 +93,11 @@ class CreateCustomerSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return Customer.objects.create(user_id=self.context['user_id'], **validated_data)
+    
+    def to_representation(self, instance):
+        response =  super().to_representation(instance)
+        response['country'] = CountrySerializer(instance.country).data
+        return response
 
 
 class TransportSerializer(serializers.ModelSerializer):
