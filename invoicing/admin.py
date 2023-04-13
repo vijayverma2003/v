@@ -85,7 +85,7 @@ class InvoiceProductInline(admin.TabularInline):
 @admin.register(models.Invoice)
 class InvoiceAdmin(admin.ModelAdmin):
     autocomplete_fields = ['customer', 'transport', 'user']
-    fields = ['user', 'number', 'date', 'due_date',
+    fields = ['user', 'firm', 'number', 'date', 'due_date',
               'terms', 'customer', 'transport']
     inlines = [InvoiceProductInline]
     list_display = ['number', 'date', 'grand_total',

@@ -11,6 +11,7 @@ from .serializers import AddInvoiceItemSerializer,\
     AddressSerializer,\
     BankSerializer,\
     CreateInvoiceSerializer,\
+    CreateInvoiceSerializer2,\
     CreateCustomerSerializer,\
     CustomerSerializer,\
     FirmLogoSerializer,\

@@ -2,6 +2,7 @@ from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Cu
 from .utils import calculate_total_cost, calculate_total_tax
 from rest_framework import serializers
 from core.serializers import CountrySerializer
+from django.db import transaction
 
 
 class BankSerializer(serializers.ModelSerializer):
@@ -93,9 +94,9 @@ class CreateCustomerSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return Customer.objects.create(user_id=self.context['user_id'], **validated_data)
-    
+
     def to_representation(self, instance):
-        response =  super().to_representation(instance)
+        response = super().to_representation(instance)
         response['country'] = CountrySerializer(instance.country).data
         return response
 
@@ -129,7 +130,6 @@ class InvoiceItemSerializer(serializers.ModelSerializer):
 
 
 class AddInvoiceItemSerializer(serializers.ModelSerializer):
-    # product_id = serializers.IntegerField()
 
     def validate_product_id(self, value):
         if not Product.objects.filter(pk=value).exists():
@@ -142,9 +142,9 @@ class AddInvoiceItemSerializer(serializers.ModelSerializer):
         fields = ['id', 'product', 'price',
                   'discount', 'packing_charges', 'quantity']
 
-    def create(self, validated_data):
-        invoice_id = self.context.get('invoice_id')
-        return InvoiceItem.objects.create(invoice_id=invoice_id, **validated_data)
+    # def create(self, validated_data):
+    #     invoice_id = self.context.get('invoice_id')
+    #     return InvoiceItem.objects.create(invoice_id=invoice_id, **validated_data)
 
 
 class UserSerializer(serializers.Serializer):
@@ -188,13 +188,54 @@ class InvoiceSerializer(serializers.ModelSerializer):
 
 
 class CreateInvoiceSerializer(serializers.ModelSerializer):
+    items = AddInvoiceItemSerializer(many=True, source="invoiceitems")
+
     class Meta:
         model = Invoice
         fields = ['id', 'firm', 'number', 'date', 'due_date',
-                  'customer', 'transport']
+                  'customer', 'transport', 'items']
 
     def create(self, validated_data):
-        return Invoice.objects.create(user_id=self.context['user_id'], **validated_data)
+        print(validated_data)
+        items = validated_data.pop('invoiceitems')
+
+        with transaction.atomic():
+            invoice = Invoice.objects.create(
+                user_id=self.context['user_id'], **validated_data)
+
+            for item in items:
+                InvoiceItem.objects.create(
+                    invoice=invoice, price=item['price'], product=item['product'], quantity=item['quantity'])
+
+            return invoice
+
+    def to_representation(self, instance):
+        response = super().to_representation(instance)
+        response = InvoiceSerializer(instance).data
+        # response['firm'] = FirmSerializer(instance.firm).data
+        # response['customer'] = CustomerSerializer(instance.customer).data
+        # response['user'] = UserSerializer(instance.user).data
+        # response['transport'] = TransportSerializer(instance.transport).data
+        return response
+
+
+class CreateInvoiceSerializer2(serializers.Serializer):
+    items = AddInvoiceItemSerializer(many=True)
+    invoice = CreateInvoiceSerializer()
+
+    def save(self, **kwargs):
+        invoice_data = self.validated_data['invoice']
+        items = self.validated_data['items']
+
+        with transaction.atomic():
+            invoice = Invoice.objects.create(
+                user_id=self.context['user_id'], **invoice_data)
+
+            for item in items:
+                InvoiceItem.objects.create(
+                    invoice=invoice, price=item['price'], product=item['product'], quantity=item['quantity'])
+
+            return invoice
 
 
 class PaymentSerializer(serializers.ModelSerializer):
@@ -205,3 +246,20 @@ class PaymentSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         invoice_id = self.context['invoice_id']
         return Payment.objects.create(invoice_id=invoice_id, **validated_data)
+
+
+{
+    "firm": 1,
+    "number": "1",
+    "date": "2023-06-06",
+    "due_date": "2023-06-06",
+    "customer": 1,
+    "transport": 1,
+    "items": [{
+        "product": 72,
+        "price": 10.0,
+        "discount": 0.0,
+        "packing_charges": 0.0,
+        "quantity": 10
+    }]
+}
