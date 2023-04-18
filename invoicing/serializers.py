@@ -56,13 +56,22 @@ class StockSerializer(serializers.ModelSerializer):
         return Stock.objects.create(product_id=product_id, **validated_data)
 
 
+class SimpleInvoiceItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = InvoiceItem
+        fields = ['invoice', 'quantity', 'price']
+
+
 class ProductSerializer(serializers.ModelSerializer):
     stock = StockSerializer(many=True, read_only=True)
     user = serializers.IntegerField(read_only=True, source='user_id')
+    invoice_items = SimpleInvoiceItemSerializer(
+        many=True, read_only=True, source="product")
 
     class Meta:
         model = Product
-        fields = ['id', 'user', 'name', 'price', 'tax', 'unit', 'hsn', 'stock']
+        fields = ['id', 'user', 'name', 'price', 'tax',
+                  'unit', 'hsn', 'stock', 'invoice_items']
 
     def calculate_tax(self, product: Product):
         return product.price + product.price * (product.tax / 100)
@@ -99,7 +108,8 @@ class SimpleInvoiceSerializer(serializers.ModelSerializer):
 class CustomerSerializer(serializers.ModelSerializer):
     user = serializers.IntegerField(read_only=True, source='user_id')
     country = CountrySerializer()
-    invoices = SimpleInvoiceSerializer(many=True, source='invoice_set')
+    invoices = SimpleInvoiceSerializer(
+        many=True, source='invoice_set', read_only=True)
 
     class Meta:
         fields = ['id', 'user', 'name', 'gstin', 'phone', 'email',
