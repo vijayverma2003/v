@@ -1,8 +1,8 @@
 from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Address, Firm, FirmLogo, Bank
 from .utils import calculate_total_cost, calculate_total_tax
-from rest_framework import serializers
 from core.serializers import CountrySerializer
 from django.db import transaction
+from rest_framework import serializers
 
 
 class BankSerializer(serializers.ModelSerializer):
@@ -71,13 +71,39 @@ class ProductSerializer(serializers.ModelSerializer):
         return Product.objects.create(user_id=self.context['user_id'], **validated_data)
 
 
+class SimpleInvoiceSerializer(serializers.ModelSerializer):
+    total_cost = serializers.SerializerMethodField("calculate_total_cost")
+    total_tax = serializers.SerializerMethodField("calculate_total_tax")
+
+    class Meta:
+        model = Invoice
+        fields = ['id', 'date', 'total_cost', 'total_tax']
+
+    def calculate_total_cost(self, invoice):
+        total_cost = 0
+
+        for item in list(invoice.invoiceitems.all()):
+            total_cost += calculate_total_cost(item)
+
+        return total_cost
+
+    def calculate_total_tax(self, invoice):
+        total_tax = 0
+
+        for item in list(invoice.invoiceitems.all()):
+            total_tax += calculate_total_tax(item)
+
+        return total_tax
+
+
 class CustomerSerializer(serializers.ModelSerializer):
     user = serializers.IntegerField(read_only=True, source='user_id')
     country = CountrySerializer()
+    invoices = SimpleInvoiceSerializer(many=True, source='invoice_set')
 
     class Meta:
         fields = ['id', 'user', 'name', 'gstin', 'phone', 'email',
-                  'street', 'city', 'state', 'country']
+                  'street', 'city', 'state', 'country', 'invoices', 'total']
         model = Customer
 
     def create(self, validated_data):
@@ -141,10 +167,6 @@ class AddInvoiceItemSerializer(serializers.ModelSerializer):
         model = InvoiceItem
         fields = ['id', 'product', 'price',
                   'discount', 'packing_charges', 'quantity']
-
-    # def create(self, validated_data):
-    #     invoice_id = self.context.get('invoice_id')
-    #     return InvoiceItem.objects.create(invoice_id=invoice_id, **validated_data)
 
 
 class UserSerializer(serializers.Serializer):
@@ -212,30 +234,7 @@ class CreateInvoiceSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         response = super().to_representation(instance)
         response = InvoiceSerializer(instance).data
-        # response['firm'] = FirmSerializer(instance.firm).data
-        # response['customer'] = CustomerSerializer(instance.customer).data
-        # response['user'] = UserSerializer(instance.user).data
-        # response['transport'] = TransportSerializer(instance.transport).data
         return response
-
-
-class CreateInvoiceSerializer2(serializers.Serializer):
-    items = AddInvoiceItemSerializer(many=True)
-    invoice = CreateInvoiceSerializer()
-
-    def save(self, **kwargs):
-        invoice_data = self.validated_data['invoice']
-        items = self.validated_data['items']
-
-        with transaction.atomic():
-            invoice = Invoice.objects.create(
-                user_id=self.context['user_id'], **invoice_data)
-
-            for item in items:
-                InvoiceItem.objects.create(
-                    invoice=invoice, price=item['price'], product=item['product'], quantity=item['quantity'])
-
-            return invoice
 
 
 class PaymentSerializer(serializers.ModelSerializer):
@@ -246,20 +245,3 @@ class PaymentSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         invoice_id = self.context['invoice_id']
         return Payment.objects.create(invoice_id=invoice_id, **validated_data)
-
-
-{
-    "firm": 1,
-    "number": "1",
-    "date": "2023-06-06",
-    "due_date": "2023-06-06",
-    "customer": 1,
-    "transport": 1,
-    "items": [{
-        "product": 72,
-        "price": 10.0,
-        "discount": 0.0,
-        "packing_charges": 0.0,
-        "quantity": 10
-    }]
-}

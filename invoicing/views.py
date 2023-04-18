@@ -1,18 +1,22 @@
 from .models import Product, Stock, Invoice, InvoiceItem, Transport, Payment, Customer, Firm, Address, FirmLogo, Bank
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+from django.template.loader import get_template
+from io import BytesIO
 from rest_framework import status
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from weasyprint import HTML
-from django.template.loader import get_template
+import base64
+import chardet
+import qrcode
 from .serializers import AddInvoiceItemSerializer,\
     AddressSerializer,\
     BankSerializer,\
-    CreateInvoiceSerializer,\
-    CreateInvoiceSerializer2,\
     CreateCustomerSerializer,\
+    CreateInvoiceSerializer,\
     CustomerSerializer,\
     FirmLogoSerializer,\
     FirmSerializer,\
@@ -23,11 +27,6 @@ from .serializers import AddInvoiceItemSerializer,\
     StockSerializer,\
     TransportSerializer\
 
-import chardet
-from django.http import HttpResponse
-import qrcode
-from io import BytesIO
-import base64
 
 
 def create_invoice_pdf(request, id):
