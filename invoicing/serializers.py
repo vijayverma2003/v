@@ -123,7 +123,7 @@ class CreateCustomerSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         response = super().to_representation(instance)
-        response['country'] = CountrySerializer(instance.country).data
+        response = CustomerSerializer(instance).data
         return response
 
 
