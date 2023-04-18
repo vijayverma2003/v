@@ -77,7 +77,7 @@ class SimpleInvoiceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Invoice
-        fields = ['id', 'date', 'total_cost', 'total_tax']
+        fields = ['id', 'number', 'date', 'total_cost', 'total_tax']
 
     def calculate_total_cost(self, invoice):
         total_cost = 0
