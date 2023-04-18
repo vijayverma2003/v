@@ -103,7 +103,7 @@ class CustomerSerializer(serializers.ModelSerializer):
 
     class Meta:
         fields = ['id', 'user', 'name', 'gstin', 'phone', 'email',
-                  'street', 'city', 'state', 'country', 'invoices', 'total']
+                  'street', 'city', 'state', 'country', 'invoices']
         model = Customer
 
     def create(self, validated_data):
