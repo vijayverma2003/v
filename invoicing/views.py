@@ -101,7 +101,7 @@ class ProductViewSet(ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         if InvoiceItem.objects.filter(product_id=kwargs['pk']).count() > 0:
-            return Response({'error': 'Product can not be deleted because it is associated with an invoice item.'},
+            return Response({'error': 'Product can not be deleted because it is associated with an invoice item'},
                             status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
         return super().destroy(request, *args, **kwargs)
@@ -145,7 +145,7 @@ class CustomerViewSet(ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         if Invoice.objects.filter(customer_id=kwargs['pk']).count() > 0:
-            return Response({'error': 'Customer can not be deleted because it is associated with an invoice.'},
+            return Response({'error': 'Customer can not be deleted because it is associated with an invoice'},
                             status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
         return super().destroy(request, *args, **kwargs)
@@ -190,6 +190,13 @@ class TransportViewSet(ModelViewSet):
         if self.request.method == 'GET':
             return [AllowAny()]
         return [IsAuthenticated()]
+
+    def destroy(self, request, *args, **kwargs):
+        if Invoice.objects.filter(transport_id=kwargs['pk']).count() > 0:
+            return Response({"error": "Transport can not be deleted because it is associated with an invoice"},
+                            status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+        return super().destroy(request, *args, **kwargs)
 
 
 class InvoiceItemViewSet(ModelViewSet):
