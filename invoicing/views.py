@@ -88,8 +88,8 @@ class ProductViewSet(ModelViewSet):
 
     def get_queryset(self):
         if self.request.user.id:
-            return Product.objects.prefetch_related('stock').filter(user_id=self.request.user.id)
-        return Product.objects.prefetch_related('stock').all()
+            return Product.objects.prefetch_related('stock', 'product').filter(user_id=self.request.user.id)
+        return Product.objects.prefetch_related('stock', 'product').all()
 
     def get_serializer_context(self):
         return {'user_id': self.request.user.id}
@@ -127,8 +127,8 @@ class CustomerViewSet(ModelViewSet):
 
     def get_queryset(self):
         if self.request.user.id:
-            return Customer.objects.filter(user_id=self.request.user.id)
-        return Customer.objects.all()
+            return Customer.objects.select_related('country__currency').prefetch_related('invoice_set__invoiceitems__product').filter(user_id=self.request.user.id)
+        return Customer.objects.select_related('country__currency').prefetch_related('invoice_set__invoiceitems__product').all()
 
     def get_serializer_class(self):
         if self.request.method in ['POST', 'PUT']:
@@ -157,8 +157,10 @@ class InvoiceViewSet(ModelViewSet):
     def get_queryset(self):
         if self.request.user.id:
             return Invoice.objects.prefetch_related('invoiceitems__product') \
+                .select_related('firm__bank', 'firm__address', 'firm__logo', 'user', 'customer__country', 'transport')\
                 .filter(user_id=self.request.user.id)
-        return Invoice.objects.prefetch_related('invoiceitems__product').all()
+        return Invoice.objects.prefetch_related('invoiceitems__product')\
+            .select_related('firm__bank', 'firm__address', 'firm__logo', 'user', 'customer__country', 'transport').all()
 
     def get_serializer_class(self):
         if self.request.method in ['POST', 'PUT']:

@@ -184,6 +184,15 @@ class UserSerializer(serializers.Serializer):
     email = serializers.EmailField()
 
 
+class SimpleCustomerSerializer(serializers.ModelSerializer):
+    country = CountrySerializer()
+
+    class Meta:
+        fields = ['id', 'name', 'gstin', 'phone', 'email',
+                  'street', 'city', 'state', 'country']
+        model = Customer
+
+
 class InvoiceSerializer(serializers.ModelSerializer):
     items = InvoiceItemSerializer(
         many=True, source='invoiceitems', read_only=True)
@@ -193,7 +202,7 @@ class InvoiceSerializer(serializers.ModelSerializer):
         method_name='calculate_total_cost')
     total_tax = serializers.SerializerMethodField(
         method_name='calculate_total_tax')
-    customer = CustomerSerializer()
+    customer = SimpleCustomerSerializer()
     firm = FirmSerializer()
     user = UserSerializer()
 
