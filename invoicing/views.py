@@ -15,6 +15,7 @@ import qrcode
 from .serializers import AddInvoiceItemSerializer,\
     AddressSerializer,\
     BankSerializer,\
+    CreateAddressSerializer,\
     CreateCustomerSerializer,\
     CreateInvoiceSerializer,\
     CustomerSerializer,\
@@ -265,6 +266,11 @@ class AddressViewSet(ModelViewSet):
 
     def get_queryset(self):
         return Address.objects.filter(pk=self.kwargs['firm_pk'])
+
+    def get_serializer_class(self):
+        if self.request.method in ['POST', 'PUT']:
+            return CreateAddressSerializer
+        return AddressSerializer
 
     def get_serializer_context(self):
         return {'firm_id': self.kwargs['firm_pk']}

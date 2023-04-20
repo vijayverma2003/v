@@ -21,6 +21,13 @@ class AddressSerializer(serializers.ModelSerializer):
         fields = ['street', 'city', 'state', 'country']
         model = Address
 
+
+class CreateAddressSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        fields = ['street', 'city', 'state', 'country']
+        model = Address
+
     def create(self, validated_data):
         return Address.objects.create(firm_id=self.context.get('firm_id'), **validated_data)
 
