@@ -77,7 +77,9 @@ def create_invoice_pdf(request, id):
 
     pdf = HTML(string=rendered_html).write_pdf()
 
-    return HttpResponse(pdf, content_type="application/pdf")
+    response = HttpResponse(pdf, content_type="application/pdf")
+    response['X-Frame-Options'] = 'ALLOW-FROM https://mozilla.github.io'
+    return response
 
 
 class ProductViewSet(ModelViewSet):
