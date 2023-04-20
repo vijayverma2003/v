@@ -27,7 +27,7 @@ class Address(models.Model):
     street = models.CharField(max_length=255, null=True, blank=True)
     city = models.CharField(max_length=55)
     state = models.CharField(max_length=55)
-    country = models.CharField(max_length=55)
+    country = models.ForeignKey('core.Country', on_delete=models.PROTECT)
     firm = models.OneToOneField(
         Firm, on_delete=models.CASCADE, primary_key=True)
 

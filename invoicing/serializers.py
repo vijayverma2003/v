@@ -15,6 +15,8 @@ class BankSerializer(serializers.ModelSerializer):
 
 
 class AddressSerializer(serializers.ModelSerializer):
+    country = CountrySerializer()
+
     class Meta:
         fields = ['street', 'city', 'state', 'country']
         model = Address

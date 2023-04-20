@@ -58,7 +58,7 @@ class FirmAdmin(admin.ModelAdmin):
         address = ''
         if firm.address.street:
             address += f'{firm.address.street}, '
-        address += f'{firm.address.city}, {firm.address.state}, {firm.address.country}'
+        address += f'{firm.address.city}, {firm.address.state}, {firm.address.country.name}'
         return address
 
     class Media:
