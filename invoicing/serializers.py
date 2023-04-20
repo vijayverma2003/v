@@ -202,6 +202,16 @@ class SimpleCustomerSerializer(serializers.ModelSerializer):
         model = Customer
 
 
+class PaymentSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = ['id', 'amount', 'datetime', 'mode']
+        model = Payment
+
+    def create(self, validated_data):
+        invoice_id = self.context['invoice_id']
+        return Payment.objects.create(invoice_id=invoice_id, **validated_data)
+
+
 class InvoiceSerializer(serializers.ModelSerializer):
     items = InvoiceItemSerializer(
         many=True, source='invoiceitems', read_only=True)
@@ -214,11 +224,12 @@ class InvoiceSerializer(serializers.ModelSerializer):
     customer = SimpleCustomerSerializer()
     firm = FirmSerializer()
     user = UserSerializer()
+    payments = PaymentSerializer(source="payment_set", many=True)
 
     class Meta:
         model = Invoice
         fields = ['id', 'user', 'firm', 'number', 'date', 'due_date',
-                  'customer', 'items', 'total_cost', 'total_tax', 'transport']
+                  'customer', 'items', 'total_cost', 'total_tax', 'transport', 'payments']
 
     def calculate_total_cost(self, invoice):
         total_cost = 0
@@ -263,13 +274,3 @@ class CreateInvoiceSerializer(serializers.ModelSerializer):
         response = super().to_representation(instance)
         response = InvoiceSerializer(instance).data
         return response
-
-
-class PaymentSerializer(serializers.ModelSerializer):
-    class Meta:
-        fields = ['id', 'amount', 'datetime', 'mode']
-        model = Payment
-
-    def create(self, validated_data):
-        invoice_id = self.context['invoice_id']
-        return Payment.objects.create(invoice_id=invoice_id, **validated_data)
