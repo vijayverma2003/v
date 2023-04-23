@@ -23,6 +23,7 @@ from .serializers import AddInvoiceItemSerializer,\
     FirmSerializer,\
     InvoiceItemSerializer,\
     InvoiceSerializer,\
+    CreatePaymentSerializer,\
     PaymentSerializer,\
     ProductSerializer,\
     StockSerializer,\
@@ -224,7 +225,6 @@ class InvoiceItemViewSet(ModelViewSet):
 
 
 class PaymentViewSet(ModelViewSet):
-    serializer_class = PaymentSerializer
 
     def get_queryset(self):
         return Payment.objects.filter(invoice_id=self.kwargs['invoice_pk'])
@@ -236,6 +236,11 @@ class PaymentViewSet(ModelViewSet):
         if self.request.method == 'GET':
             return [AllowAny()]
         return [IsAuthenticated()]
+
+    def get_serializer_class(self):
+        if self.request.method in ['POST', 'PUT']:
+            return CreatePaymentSerializer
+        return PaymentSerializer
 
 
 class FirmViewSet(ModelViewSet):
