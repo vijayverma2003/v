@@ -37,6 +37,7 @@ def create_invoice_pdf(request, id):
     data = serializer.data
 
     taxList = []
+    hsnList = []
 
     for item in data.get('items'):
         product = item.get('product')
@@ -53,6 +54,30 @@ def create_invoice_pdf(request, id):
             taxList.append(
                 {'tax': tax, 'total': item.get('total') * (tax / 100)})
 
+    for item in data.get('items'):
+        item = dict(item)
+        exists = False
+
+        for hsn in hsnList:
+            if hsn['number'] == item['product']["hsn"]:
+                hsn["taxableValue"] += item['price'] * item['quantity']
+                hsn["taxAmount"] += (item['price'] *
+                                     item['quantity'] * item['product']["tax"]) / 100
+                hsn["taxRate"] = item['product']["tax"]
+                exists = True
+                break
+
+        if not exists:
+            hsnList.append({
+                "number": item['product']["hsn"],
+                "taxableValue": item['price'] * item['quantity'],
+                "taxAmount": (item['price'] *
+                              item['quantity'] * item['product']["tax"]) / 100,
+                "tax": item['product']["tax"]
+            })
+
+    print(hsnList)
+
     qr = qrcode.QRCode(version=1, box_size=10, border=4,
                        error_correction=qrcode.constants.ERROR_CORRECT_L,)
 
@@ -68,8 +93,13 @@ def create_invoice_pdf(request, id):
 
     html_template = get_template("invoice_1.html")
 
-    html = html_template.render(
-        {'inv': data, 'qr': f'data:image/png;base64,{buffer_image}', 'taxList': taxList, 'grand_total': data.get('total_cost') + data.get('total_tax')})
+    html = html_template.render({
+        'inv': data,
+        'qr': f'data:image/png;base64,{buffer_image}',
+        'taxList': taxList,
+        'grand_total': data.get('total_cost') + data.get('total_tax'),
+        'hsnList': hsnList
+    })
 
     html_bytes = html.encode()
 

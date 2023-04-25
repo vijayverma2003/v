@@ -158,7 +158,7 @@ class TransportSerializer(serializers.ModelSerializer):
 class SimpleProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['id', 'name', 'tax', 'unit']
+        fields = ['id', 'name', 'tax', 'unit', 'hsn']
 
 
 class InvoiceItemSerializer(serializers.ModelSerializer):

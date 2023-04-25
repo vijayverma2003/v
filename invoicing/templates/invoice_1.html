@@ -117,7 +117,7 @@
       <div>
         <p>
           {{inv.firm.address.street}}, {{inv.firm.address.city}},
-          {{inv.firm.address.state}}, {{inv.firm.address.country}}
+          {{inv.firm.address.state}}, {{inv.firm.address.country.name}}
         </p>
         {% if firm.gstin %}
         <p>GSTIN: {{inv.firm.gstin}}</p>
@@ -167,7 +167,7 @@
       <tbody>
         {% for item in inv.items %}
         <tr>
-          <td>{{ forloop.counter }}</td>
+          <td>{{ forloop.counter }}.</td>
           <td>{{item.product.name}}</td>
           <td>{{item.quantity}}</td>
           <td>{{item.price}}</td>
@@ -209,10 +209,10 @@
         <th>Branch</th>
       </tr>
       <tr>
-        <td>Bank Name</td>
-        <td>Acc. Number</td>
-        <td>IFSC Code</td>
-        <td>Branch</td>
+        <td>{{inv.firm.bank.name}}</td>
+        <td>{{inv.firm.bank.acc}}</td>
+        <td>{{inv.firm.bank.ifsc}}</td>
+        <td>{{inv.firm.bank.branch}}</td>
       </tr>
     </table>
 
