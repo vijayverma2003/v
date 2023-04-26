@@ -127,5 +127,5 @@ class InvoiceItem(models.Model):
 class Payment(models.Model):
     invoice = models.ForeignKey(Invoice, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    datetime = models.DateTimeField(auto_now_add=True)
+    datetime = models.DateField()
     mode = models.CharField(max_length=55)

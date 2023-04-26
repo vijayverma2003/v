@@ -119,13 +119,18 @@
           {{inv.firm.address.street}}, {{inv.firm.address.city}},
           {{inv.firm.address.state}}, {{inv.firm.address.country.name}}
         </p>
-        {% if firm.gstin %}
+        <p>Email: {{inv.user.email}}</p>
+        {% if inv.firm.gstin %}
         <p>GSTIN: {{inv.firm.gstin}}</p>
         {% endif %}
-        <p>Email: {{inv.user.email}}</p>
       </div>
       <div>
         <p><strong>Invoice Number: {{inv.number}}</strong></p>
+        {% if inv.ewaybill %}
+        <p><strong>E Way bill number: {{inv.ewaybill}}</strong></p>
+        {% endif %} {% if inv.order_number %}
+        <p><strong>Order number: {{inv.order_number}}</strong></p>
+        {% endif %}
         <p>Date: {{inv.date}}</p>
         <p>Due Date: {{inv.due_date}}</p>
       </div>
