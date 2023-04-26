@@ -148,7 +148,8 @@ class CreateCustomerSerializer(serializers.ModelSerializer):
 
 class TransportSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ['id', 'name', 'transporter_id', 'mode', 'user_id', 'vehicle_number']
+        fields = ['id', 'name', 'transporter_id',
+                  'mode', 'user_id', 'vehicle_number']
         model = Transport
 
     def create(self, validated_data):
@@ -224,7 +225,7 @@ class InvoiceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Invoice
-        fields = ['id', 'user', 'firm', 'number', 'date', 'due_date',
+        fields = ['id', 'user', 'firm', 'number', 'order_number', 'ewaybill', 'date', 'due_date',
                   'customer', 'items', 'total_cost', 'total_tax', 'transport', 'payments']
 
     def calculate_total_cost(self, invoice):
@@ -249,7 +250,7 @@ class CreateInvoiceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Invoice
-        fields = ['id', 'firm', 'number', 'date', 'due_date',
+        fields = ['id', 'firm', 'number', 'date', 'due_date', 'order_number', 'ewaybill',
                   'customer', 'transport', 'items']
 
     def create(self, validated_data):

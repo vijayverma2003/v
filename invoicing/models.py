@@ -98,6 +98,8 @@ class Invoice(models.Model):
     number = models.CharField(max_length=55)
     date = models.DateField()
     due_date = models.DateField()
+    ewaybill = models.CharField(max_length=55, blank=True, null=True)
+    order_number = models.CharField(max_length=10, blank=True, null=True)
     terms = models.TextField(
         max_length=2000, blank=True, default='')
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
