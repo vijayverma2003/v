@@ -218,6 +218,8 @@ class InvoiceSerializer(serializers.ModelSerializer):
         method_name='calculate_total_cost')
     total_tax = serializers.SerializerMethodField(
         method_name='calculate_total_tax')
+    total_packing_charges = serializers.SerializerMethodField(
+        method_name='calculate_total_packing_charges')
     customer = SimpleCustomerSerializer()
     firm = FirmSerializer()
     user = UserSerializer()
@@ -226,7 +228,7 @@ class InvoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Invoice
         fields = ['id', 'user', 'firm', 'number', 'order_number', 'ewaybill', 'date', 'due_date',
-                  'customer', 'items', 'total_cost', 'total_tax', 'transport', 'payments']
+                  'customer', 'items', 'total_cost', 'total_tax', 'transport', 'payments', 'total_packing_charges']
 
     def calculate_total_cost(self, invoice):
         total_cost = 0
@@ -243,6 +245,14 @@ class InvoiceSerializer(serializers.ModelSerializer):
             total_tax += calculate_total_tax(item)
 
         return total_tax
+
+    def calculate_total_packing_charges(self, invoice):
+        total_packing_charges = 0
+
+        for item in list(invoice.invoiceitems.all()):
+            total_packing_charges += item.packing_charges
+
+        return total_packing_charges
 
 
 class CreateInvoiceSerializer(serializers.ModelSerializer):
@@ -263,7 +273,7 @@ class CreateInvoiceSerializer(serializers.ModelSerializer):
 
             for item in items:
                 InvoiceItem.objects.create(
-                    invoice=invoice, price=item['price'], product=item['product'], quantity=item['quantity'])
+                    invoice=invoice, price=item['price'], product=item['product'], quantity=item['quantity'], discount=item['discount'], packing_charges=item['packing_charges'])
 
             return invoice
 

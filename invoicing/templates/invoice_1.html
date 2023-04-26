@@ -1,3 +1,5 @@
+{% load custom_filters %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -203,6 +205,70 @@
     </table>
 
     <p><i>Total in words:</i></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>HSN Number</th>
+          <th>Taxable Value</th>
+          {% if inv.firm.address.state == inv.customer.state %}
+          <th colspan="2">CGST</th>
+          <th colspan="2">SGST</th>
+          {% else %}
+          <th colspan="2">IGST</th>
+          {% endif %}
+
+          <th>Total Tax Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          {% if inv.firm.address.state == inv.customer.state %}
+          <td>Rate</td>
+          <td>Amount</td>
+          <td>Rate</td>
+          <td>Amount</td>
+          {% else %}
+          <td>Rate</td>
+          <td>Amount</td>
+          {% endif %}
+          <td></td>
+        </tr>
+        {% for hsn in hsnList %}
+        <tr>
+          <td>{{hsn.number}}</td>
+          <td>{{hsn.taxableValue|floatformat:2}}</td>
+          {% if inv.firm.address.state == inv.customer.state %}
+          <td>{{hsn.tax|divide:2}}</td>
+          <td>{{hsn.taxAmount|divide:2|floatformat:2}}</td>
+          <td>{{hsn.tax|divide:2}}</td>
+          <td>{{hsn.taxAmount|divide:2|floatformat:2}}</td>
+          {% else %}
+          <td>{{hsn.tax}}</td>
+          <td>{{hsn.taxAmount|floatformat:2}}</td>
+          {% endif %}
+          <td>{{hsn.taxAmount|floatformat:2}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td>Total</td>
+          <td>{{inv.total_cost|floatformat:2}}</td>
+          {% if inv.firm.address.state == inv.customer.state %}
+          <td></td>
+          <td>{{inv.total_tax|divide:2|floatformat:2}}</td>
+          <td></td>
+          <td>{{inv.total_tax|divide:2|floatformat:2}}</td>
+          {% else %}
+          <td></td>
+          <td>{{inv.total_tax|floatformat:2}}</td>
+          {% endif %}
+          <td>{{inv.total_tax|floatformat:2}}</td>
+        </tr>
+      </tbody>
+    </table>
+
     <p><i>Total Tax in words:</i></p>
 
     <h2>Bank Details</h2>

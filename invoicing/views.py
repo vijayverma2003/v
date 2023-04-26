@@ -63,7 +63,7 @@ def create_invoice_pdf(request, id):
                 hsn["taxableValue"] += item['price'] * item['quantity']
                 hsn["taxAmount"] += (item['price'] *
                                      item['quantity'] * item['product']["tax"]) / 100
-                hsn["taxRate"] = item['product']["tax"]
+                hsn["tax"] = item['product']["tax"]
                 exists = True
                 break
 
