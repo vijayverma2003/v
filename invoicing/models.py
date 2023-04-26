@@ -86,6 +86,7 @@ class Transport(models.Model):
     name = models.CharField(max_length=255)
     mode = models.CharField(max_length=55)
     transporter_id = models.CharField(max_length=55, blank=True, null=True)
+    vehicle_number = models.CharField(max_length=55, blank=True, null=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
 
