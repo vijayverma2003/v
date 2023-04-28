@@ -93,12 +93,14 @@ def create_invoice_pdf(request, id):
 
     html_template = get_template("invoice_1.html")
 
+    grand_total = data.get('total_cost') + data.get('total_tax')
+
     html = html_template.render({
         'inv': data,
         'qr': f'data:image/png;base64,{buffer_image}',
         'taxList': taxList,
-        'grand_total': data.get('total_cost') + data.get('total_tax'),
-        'hsnList': hsnList
+        'grand_total': grand_total,
+        'hsnList': hsnList,
     })
 
     html_bytes = html.encode()

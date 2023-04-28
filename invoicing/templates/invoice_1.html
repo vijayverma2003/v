@@ -68,6 +68,7 @@
       table {
         width: 100%;
         border-collapse: collapse;
+        margin-bottom: 2rem;
       }
 
       th,
@@ -156,6 +157,7 @@
         <p>Transport Name: {{inv.transport.name}}</p>
         <p>Transporter ID: {{inv.transport.transporter_id}}</p>
         <p>Mode of transport: {{inv.transport.mode}}</p>
+        <p>Vehicle Number: {{inv.transport.vehicle_number}}</p>
       </div>
     </div>
 
@@ -204,7 +206,7 @@
       </tbody>
     </table>
 
-    <p><i>Total in words:</i></p>
+    <!-- <p><i>Total in words: {{total_in_words}}</i></p> -->
 
     <table>
       <thead>
@@ -269,7 +271,7 @@
       </tbody>
     </table>
 
-    <p><i>Total Tax in words:</i></p>
+    <!-- <p><i>Total Tax in words:</i></p> -->
 
     <h2>Bank Details</h2>
     <table>

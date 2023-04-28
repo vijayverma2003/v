@@ -24,6 +24,7 @@ weasyprint = "*"
 chardet = "*"
 pyqrcode = "*"
 qrcode = "*"
+inwords = "*"
 
 [dev-packages]
 autopep8 = "*"

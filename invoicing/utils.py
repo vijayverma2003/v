@@ -9,3 +9,4 @@ def calculate_total_cost(item):
 def calculate_total_tax(item):
     total = calculate_total_cost(item)
     return total * item.product.tax / 100
+
