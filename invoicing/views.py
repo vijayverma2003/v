@@ -76,8 +76,6 @@ def create_invoice_pdf(request, id):
                 "tax": item['product']["tax"]
             })
 
-    print(hsnList)
-
     qr = qrcode.QRCode(version=1, box_size=10, border=4,
                        error_correction=qrcode.constants.ERROR_CORRECT_L,)
 
@@ -95,21 +93,31 @@ def create_invoice_pdf(request, id):
 
     grand_total = data.get('total_cost') + data.get('total_tax')
 
+    logo_url = None
+
+    if data['firm']['logo']:
+        logo_url = 'http://' + request.get_host() + \
+            data['firm']['logo']['image']
+
     html = html_template.render({
         'inv': data,
         'qr': f'data:image/png;base64,{buffer_image}',
         'taxList': taxList,
         'grand_total': grand_total,
         'hsnList': hsnList,
+        'logo_url': logo_url
     })
+
+    print(logo_url)
 
     html_bytes = html.encode()
 
     result = chardet.detect(html_bytes)
 
     rendered_html = html_bytes.decode(result['encoding']).encode("utf-8")
-
-    pdf = HTML(string=rendered_html).write_pdf()
+    print(request.build_absolute_uri())
+    pdf = HTML(string=rendered_html, base_url=request.build_absolute_uri()
+               ).write_pdf()
 
     response = HttpResponse(pdf, content_type="application/pdf")
     response['X-Frame-Options'] = 'ALLOW-FROM https://mozilla.github.io'
