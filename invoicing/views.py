@@ -45,9 +45,10 @@ def create_invoice_pdf(request, id):
 
         exists = False
 
+        print(item)
         for rate in taxList:
             if rate.get('tax') and rate.get('tax') == tax:
-                rate.total += item.get('total') * (tax / 100)
+                rate['total'] += item.get('total') * (tax / 100)
                 exists = True
 
         if not exists:

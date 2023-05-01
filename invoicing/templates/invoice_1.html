@@ -103,6 +103,10 @@
         width: 50px;
         height: 50px;
       }
+
+      .text-left {
+        text-align: left;
+      }
     </style>
   </head>
   <body>
@@ -165,7 +169,7 @@
       <thead>
         <tr>
           <th>S No.</th>
-          <th>Name of Product</th>
+          <th class="text-left">Name of Product</th>
           <th>Qty</th>
           <th>Cost</th>
           <th>Per</th>
@@ -176,31 +180,63 @@
         {% for item in inv.items %}
         <tr>
           <td>{{ forloop.counter }}.</td>
-          <td>{{item.product.name}}</td>
+          <td class="text-left">{{item.product.name}}</td>
           <td>{{item.quantity}}</td>
           <td>{{item.price}}</td>
           <td>{{item.product.unit}}</td>
           <td>{{item.total|floatformat:2}}</td>
         </tr>
-        {% endfor %} {% for item in taxList %}
+        {% endfor %}
+
         <tr>
+          <td></td>
+          <td class="text-left">
+            <strong><i>Packing Charges</i></strong>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{inv.total_packing_charges}}</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td class="text-left">
+            <strong><i>Frieght &amp; forwarding charges</i></strong>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{inv.total_packing_charges}}</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          {% if inv.firm.address.state == inv.customer.state %}
+          <td class="text-left">
+            <strong><i>Output Tax CGST/SGST </i></strong>
+          </td>
+          {% endif %} {% if inv.firm.address.state != inv.customer.state %}
+          <td class="text-left">
+            <strong><i>Output Tax IGST </i></strong>
+          </td>
+          {% endif %}
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{inv.total_tax|floatformat:2}}</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td class="text-left"><strong>Grand Total</strong></td>
           <td></td>
           <td></td>
           <td></td>
           <td>
-            <strong><i>Output Tax @ {{item.tax|floatformat:0}}%</i></strong>
+            {{inv.firm.address.country.currency.label}}
+            {{grand_total|floatformat:2}}
           </td>
-          <td></td>
-          <td>{{item.total|floatformat:2}}</td>
-        </tr>
-        {% endfor %}
-        <tr>
-          <td></td>
-          <td><strong>Total</strong></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>{{grand_total|floatformat:2}}</td>
         </tr>
       </tbody>
     </table>
