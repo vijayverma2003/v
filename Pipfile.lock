@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2b2c70119ca2abce962bd781c3a1a837fe54b54c3215e1bdb5e60fdac88021e4"
+            "sha256": "d99cde8110a7665930d96f89bb452c39f33d9484c9fd440c45f74252422bd308"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -419,11 +419,11 @@
         },
         "django-filter": {
             "hashes": [
-                "sha256:dee5dcf2cea4d7f767e271b6d01f767fce7500676d5e5dc58dac8154000b87df",
-                "sha256:e3c52ad83c32fb5882125105efb5fea2a1d6a85e7dc64b04ef52edbf14451b6c"
+                "sha256:2fe15f78108475eda525692813205fa6f9e8c1caf1ae65daa5862d403c6dbf00",
+                "sha256:d12d8e0fc6d3eb26641e553e5d53b191eb8cec611427d4bdce0becb1f7c172b5"
             ],
             "index": "pypi",
-            "version": "==23.1"
+            "version": "==23.2"
         },
         "django-redis": {
             "hashes": [
@@ -464,6 +464,12 @@
             "index": "pypi",
             "version": "==2.2.0"
         },
+        "docopt": {
+            "hashes": [
+                "sha256:49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
+            ],
+            "version": "==0.6.2"
+        },
         "drf-nested-routers": {
             "hashes": [
                 "sha256:01aa556b8c08608bb74fb34f6ca065a5183f2cda4dc0478192cc17a2581d71b0",
@@ -485,11 +491,11 @@
         },
         "gtts": {
             "hashes": [
-                "sha256:7123ba91d415340f3264266adc195ff69f89b07f97ddafcfe48c9dad66f005c8",
-                "sha256:fad26bccf0408aa8373ca8323f10731dc5b0c59eb5a0617591efe47ff30d4fcb"
+                "sha256:5314f7dedb4230889ff4773edd37e101408497e166982027b8d9582a4585eb4f",
+                "sha256:9132e409603f34d5023458e3e10ce2f5df55498d7a2ee781c9adbe616fbd4152"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==2.3.1"
+            "version": "==2.3.2"
         },
         "gunicorn": {
             "hashes": [
@@ -626,6 +632,14 @@
             "index": "pypi",
             "version": "==2.1.1"
         },
+        "num2words": {
+            "hashes": [
+                "sha256:7e7c0b0f080405aa3a1dd9d32b1ca90b3bf03bab17b8e54db05e1b78301a0988",
+                "sha256:9eeef488658226ab36818c06d7aeb956d19b530fb62030596b6802fb4659f30e"
+            ],
+            "index": "pypi",
+            "version": "==0.5.12"
+        },
         "oauthlib": {
             "hashes": [
                 "sha256:8139f29aac13e25d502680e9e19963e83f16838d48a0d71c287fe40e7067fbca",
@@ -744,11 +758,11 @@
         },
         "pyhanko": {
             "hashes": [
-                "sha256:05798a189226cfd471001e128534800ee0820ac892404a5a829ca6d6f6a2bf27",
-                "sha256:80907b4071de3c1a7c7556d527a2104c064a2bcd3739fdad85fdc9732825490c"
+                "sha256:b424e4a1c985898c969eec34ce7e5cb4b3ffdb7c42da6890998b331478fd48f3",
+                "sha256:f93bbf0b2ab143445922c6e7ea3662bb53b99938a1f5ef94a8a7c743b479455e"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==0.18.0"
+            "version": "==0.18.1"
         },
         "pyhanko-certvalidator": {
             "hashes": [
@@ -2084,11 +2098,11 @@
         },
         "werkzeug": {
             "hashes": [
-                "sha256:2d35a28a75ae03727eae14ea7d13627c0f77aed6b9998441e6dae0b387f697fc",
-                "sha256:69a4b8fcbb30a4c3fa81a5cebd961541273e4d222a4c08593b0b18312e14f64a"
+                "sha256:2f3278e9ef61511cdf82cc28fc5da0f5b501dd8f01ecf5ef6a5d810048f68702",
+                "sha256:b7b8bc1609f35ae8e45d48a9b58d7a4eb1e41eec148d37e977e5df6ebf3398b2"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==2.3.1"
+            "version": "==2.3.2"
         },
         "zope.event": {
             "hashes": [

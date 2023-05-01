@@ -12,6 +12,7 @@ from weasyprint import HTML
 import base64
 import chardet
 import qrcode
+from .utils import get_in_words
 from .serializers import AddInvoiceItemSerializer,\
     AddressSerializer,\
     BankSerializer,\
@@ -36,24 +37,7 @@ def create_invoice_pdf(request, id):
     serializer = InvoiceSerializer(invoice)
     data = serializer.data
 
-    taxList = []
     hsnList = []
-
-    for item in data.get('items'):
-        product = item.get('product')
-        tax = product.get('tax')
-
-        exists = False
-
-        print(item)
-        for rate in taxList:
-            if rate.get('tax') and rate.get('tax') == tax:
-                rate['total'] += item.get('total') * (tax / 100)
-                exists = True
-
-        if not exists:
-            taxList.append(
-                {'tax': tax, 'total': item.get('total') * (tax / 100)})
 
     for item in data.get('items'):
         item = dict(item)
@@ -96,6 +80,12 @@ def create_invoice_pdf(request, id):
 
     logo_url = None
 
+    total_tax_in_words = (get_in_words(data['total_tax'], data['firm']
+                                       ['address']['country']['currency']))
+
+    grand_total_in_words = (get_in_words(grand_total, data['firm']
+                                         ['address']['country']['currency']))
+
     if data['firm']['logo']:
         logo_url = 'http://' + request.get_host() + \
             data['firm']['logo']['image']
@@ -103,20 +93,19 @@ def create_invoice_pdf(request, id):
     html = html_template.render({
         'inv': data,
         'qr': f'data:image/png;base64,{buffer_image}',
-        'taxList': taxList,
         'grand_total': grand_total,
         'hsnList': hsnList,
-        'logo_url': logo_url
+        'logo_url': logo_url,
+        'total_tax_in_words':  total_tax_in_words,
+        'grand_total_in_words': grand_total_in_words
     })
-
-    print(logo_url)
 
     html_bytes = html.encode()
 
     result = chardet.detect(html_bytes)
 
     rendered_html = html_bytes.decode(result['encoding']).encode("utf-8")
-    print(request.build_absolute_uri())
+
     pdf = HTML(string=rendered_html, base_url=request.build_absolute_uri()
                ).write_pdf()
 

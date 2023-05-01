@@ -25,6 +25,7 @@ chardet = "*"
 pyqrcode = "*"
 qrcode = "*"
 inwords = "*"
+num2words = "*"
 
 [dev-packages]
 autopep8 = "*"

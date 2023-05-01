@@ -107,6 +107,11 @@
       .text-left {
         text-align: left;
       }
+
+      .total-string {
+        margin-bottom: 1.4rem;
+        font-weight: 600;
+      }
     </style>
   </head>
   <body>
@@ -186,8 +191,7 @@
           <td>{{item.product.unit}}</td>
           <td>{{item.total|floatformat:2}}</td>
         </tr>
-        {% endfor %}
-
+        {% endfor %} {% if inv.total_packing_charges %}
         <tr>
           <td></td>
           <td class="text-left">
@@ -198,7 +202,7 @@
           <td></td>
           <td>{{inv.total_packing_charges}}</td>
         </tr>
-
+        {% endif %} {% if inv.transportation_charges %}
         <tr>
           <td></td>
           <td class="text-left">
@@ -207,9 +211,9 @@
           <td></td>
           <td></td>
           <td></td>
-          <td>{{inv.total_packing_charges}}</td>
+          <td>{{inv.transportation_charges}}</td>
         </tr>
-
+        {% endif %}
         <tr>
           <td></td>
           {% if inv.firm.address.state == inv.customer.state %}
@@ -241,7 +245,7 @@
       </tbody>
     </table>
 
-    <!-- <p><i>Total in words: {{total_in_words}}</i></p> -->
+    <p class="total-string"><i>Total in words: {{grand_total_in_words}}</i></p>
 
     <table>
       <thead>
@@ -306,7 +310,9 @@
       </tbody>
     </table>
 
-    <!-- <p><i>Total Tax in words:</i></p> -->
+    <p class="total-string">
+      <i>Total Tax in words: {{total_tax_in_words}}</i>
+    </p>
 
     <h2>Bank Details</h2>
     <table>
