@@ -10,6 +10,7 @@ class Currency(models.Model):
     name = models.CharField(max_length=55)
     symbol = models.CharField(max_length=1, null=True, blank=True)
     label = models.CharField(max_length=15)
+    smaller_unit = models.CharField(max_length=15, null=True, blank=True)
 
     def __str__(self) -> str:
         return self.name

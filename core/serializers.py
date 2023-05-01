@@ -17,7 +17,7 @@ class UserSerializer(BaseUserSerializer):
 class CurrencySerializer(serializers.ModelSerializer):
     class Meta:
         model = Currency
-        fields = ['id', 'name', 'symbol', 'label']
+        fields = ['id', 'name', 'symbol', 'label', 'smaller_unit']
 
 
 class CountrySerializer(serializers.ModelSerializer):
