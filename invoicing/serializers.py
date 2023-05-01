@@ -228,7 +228,7 @@ class InvoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Invoice
         fields = ['id', 'user', 'firm', 'number', 'order_number', 'ewaybill', 'date', 'due_date',
-                  'customer', 'items', 'total_cost', 'total_tax', 'transport', 'payments', 'total_packing_charges']
+                  'customer', 'items', 'total_cost', 'total_tax', 'transport', 'payments', 'total_packing_charges', 'transportation_charges']
 
     def calculate_total_cost(self, invoice):
         total_cost = 0
@@ -261,7 +261,7 @@ class CreateInvoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Invoice
         fields = ['id', 'firm', 'number', 'date', 'due_date', 'order_number', 'ewaybill',
-                  'customer', 'transport', 'items']
+                  'customer', 'transport', 'items', 'transportation_charges']
 
     def create(self, validated_data):
         print(validated_data)
