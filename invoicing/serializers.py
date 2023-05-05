@@ -188,6 +188,9 @@ class AddInvoiceItemSerializer(serializers.ModelSerializer):
         fields = ['id', 'product', 'price',
                   'discount', 'packing_charges', 'quantity']
 
+    def create(self, validated_data):
+        return InvoiceItem.objects.create(**validated_data, invoice_id=self.context['invoice_id'])
+
 
 class UserSerializer(serializers.Serializer):
     id = serializers.IntegerField()

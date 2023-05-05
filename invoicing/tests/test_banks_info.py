@@ -61,12 +61,14 @@ class TestRetrieveBank:
 class TestUpdateBank:
     def test_if_user_is_valid_returns_200(self, authenticate, api_client):
         bank = baker.make(Bank)
-        print(bank.firm.user.id)
+        print(bank.__dict__)
         authenticate(bank.firm.user.id)
 
         response = api_client.put(
-            f'/invoicing/firms/{bank.firm_id}/bank/{bank.firm_id}/', {'name': 'a', 'ifsc': bank.ifsc,
-                                                                      'acc': bank.acc, 'branch': bank.branch})
+            f'/invoicing/firms/{bank.firm_id}/bank/{bank.firm_id}/', {'name': 'a', 'ifsc': 'a',
+                                                                      'acc': bank.acc, 'branch': "a"})
 
         assert response.status_code == status.HTTP_200_OK
         assert response.data['name'] == 'a'
+        assert response.data['ifsc'] == 'a'
+        assert response.data['branch'] == 'a'

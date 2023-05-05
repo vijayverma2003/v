@@ -59,6 +59,7 @@ class TestRetrieveProduct:
             'user': user.id,
             'tax': product.tax,
             'stock': [],
+            'invoice_items': [],
             'hsn': None
         }
 

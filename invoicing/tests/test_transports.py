@@ -56,7 +56,8 @@ class TestRetrieveTransport:
             'name': transport.name,
             'transporter_id': transport.transporter_id,
             'mode': transport.mode,
-            'user_id': transport.user_id
+            'user_id': transport.user_id,
+            'vehicle_number': transport.vehicle_number
         }
 
 
@@ -86,7 +87,8 @@ class TestUpdateTransport:
 
         authenticate(id=user.id)
 
-        transport = baker.make(Transport, user_id=user.id, transporter_id="")
+        transport = baker.make(Transport, user_id=user.id,
+                               transporter_id="", vehicle_number="")
 
         response = api_client.put(
             f'/invoicing/transports/{transport.id}/', {**transport.__dict__, 'name': 'a'})

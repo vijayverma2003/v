@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from invoicing.models import Invoice, Customer, Firm
+from invoicing.models import Invoice, Customer, Firm, Product
 from model_bakery import baker
 from rest_framework import status
 import pytest
@@ -28,11 +28,12 @@ class TestCreateInvoice:
         user = get_user_model().objects.create()
         customer = baker.make(Customer, user_id=user.id)
         firm = baker.make(Firm, user_id=user.id)
+        product = baker.make(Product)
 
         authenticate(id=user.id)
 
         response = create_invoice({'number': '1', 'date': '2023-01-01',
-                                   'due_date': '2023-01-01', 'customer': customer.id, 'user': user.id, 'firm': firm.id})
+                                   'due_date': '2023-01-01', 'customer': customer.id, 'user': user.id, 'firm': firm.id, 'items': [{'product': product.id, 'price': 100, 'quantity': 1}]})
 
         assert response.status_code == status.HTTP_201_CREATED
 

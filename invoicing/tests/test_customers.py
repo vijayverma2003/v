@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from invoicing.models import Customer
 from model_bakery import baker
 from rest_framework import status
+from core.models import Country
 import pytest
 
 
@@ -24,10 +25,13 @@ class TestCreateCustomer:
 
     def test_if_user_is_not_anonymous_returns_201(self, authenticate, create_customer):
         user = get_user_model().objects.create()
+        country = baker.make(Country)
         authenticate(id=user.id)
 
         response = create_customer(
-            {**self.sample_customer})
+            {**self.sample_customer, 'country': country.id})
+
+        print(response.data)
 
         assert response.status_code == status.HTTP_201_CREATED
 
@@ -45,10 +49,12 @@ class TestCreateCustomer:
 class TestRetrieveCustomer:
     def test_if_customer_exists_returns_200(self, api_client):
         user = get_user_model().objects.create()
-
         customer = baker.make(Customer, user_id=user.id)
 
         response = api_client.get(f'/invoicing/customers/{customer.id}/')
+
+        print(response.data.__dict__)
+        print(customer.country.__dict__)
 
         assert response.status_code == status.HTTP_200_OK
         assert response.data == {
@@ -62,6 +68,16 @@ class TestRetrieveCustomer:
             'state': customer.state,
             'street': customer.street,
             'user': user.id,
+            'country': {'id': customer.country.id, 'idd': customer.country.idd, 'name': customer.country.name,
+                        'currency':
+                        {
+                            'id': customer.country.currency.id,
+                            'label': customer.country.currency.label,
+                            'name': customer.country.currency.name,
+                            'smaller_unit': customer.country.currency.smaller_unit,
+                            'symbol': customer.country.currency.symbol,
+                        }},
+            'invoices': []
         }
 
 
@@ -80,13 +96,11 @@ class TestRetrieveCustomers:
 class TestUpdateCustomer:
     def test_if_user_is_valid_returns_404(self, authenticate, api_client):
         user = get_user_model().objects.create()
-
         authenticate(id=user.id)
-
         customer = baker.make(Customer, user_id=user.id)
 
         response = api_client.put(
-            f'/invoicing/customers/{customer.id}/', {**customer.__dict__, 'name': 'a', 'gstin': '', 'street': ''})
+            f'/invoicing/customers/{customer.id}/', {**customer.__dict__, 'name': 'a', 'gstin': '', 'street': '', 'country': customer.country.id})
 
         assert response.status_code == status.HTTP_200_OK
         assert response.data['name'] == 'a'

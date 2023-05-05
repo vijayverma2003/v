@@ -66,21 +66,21 @@ class TestRetrievePaymentList:
 class TestUpdatePayment:
     def test_if_data_is_valid_returns_200(self, authenticate, api_client):
         payment = baker.make(Payment)
-
         authenticate()
 
         response = api_client.put(f'/invoicing/invoices/{payment.invoice_id}/payments/{payment.id}/', {
-            'amount': 10, 'mode': 'cash'})
+            'amount': 10, 'mode': 'cash', 'datetime': '01/01/2030'})
 
         assert response.status_code == status.HTTP_200_OK
         assert response.data['amount'] == 10
         assert response.data['mode'] == 'cash'
+        assert response.data['datetime'] == '01/01/2030'
 
     def test_if_user_is_anonymous_returns_401(self, api_client):
         payment = baker.make(Payment)
 
         response = api_client.put(f'/invoicing/invoices/{payment.invoice_id}/payments/{payment.id}/', {
-            'amount': 10, 'mode': 'cash'})
+            'amount': 10, 'mode': 'cash', 'datetime': '01/01/2001'})
 
         assert response.status_code == status.HTTP_401_UNAUTHORIZED
 
@@ -89,6 +89,6 @@ class TestUpdatePayment:
         authenticate()
 
         response = api_client.put(f'/invoicing/invoices/{payment.invoice_id}/payments/{payment.id}/', {
-            'amount': '', 'mode': 'cash'})
+            'amount': '', 'mode': 'cash', 'datetime': '01/01/2001'})
 
         assert response.status_code == status.HTTP_400_BAD_REQUEST
